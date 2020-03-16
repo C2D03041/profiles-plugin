@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/profiles-waterfall">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-waterfall" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-waterfall" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-waterfall" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-waterfall" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="ProjectId" id="1Z9f8sfV9vLCy78zS6QCxpjfTWF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Liam\IdeaProjects\ProfilesPlugin\profiles-paper\src\main\java\com\awooga\profiles" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ProfilesPlugin [shadowJar]">
+    <configuration name="ProfilesPlugin [dependentComponents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependentComponents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfilesPlugin [install]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="install" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfilesPlugin [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfilesPlugin build" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" value="ProfilesPlugin build" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfilesPlugin:profiles-waterfall [knows]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/profiles-waterfall" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="knows" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProfilesPlugin:profiles-waterfall [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/profiles-waterfall" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ProfilesPlugin [shadowJar]" />
+        <item itemvalue="Gradle.ProfilesPlugin:profiles-waterfall [shadowJar]" />
+        <item itemvalue="Gradle.ProfilesPlugin:profiles-waterfall [knows]" />
+        <item itemvalue="Gradle.ProfilesPlugin [dependentComponents]" />
+        <item itemvalue="Gradle.ProfilesPlugin [install]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="" />
+      <created>1584256073135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584256073135</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="198" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584295740614">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state x="198" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.970@0.0.1500.970" timestamp="1584295740614" />
+    <state x="600" y="375" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584256109860">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state x="600" y="375" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1500.970@0.0.1500.970" timestamp="1584256109860" />
+    <state x="332" y="141" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1584256107026">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state x="332" y="141" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1500.970@0.0.1500.970" timestamp="1584256107026" />
+    <state width="1344" height="243" key="GridCell.Tab.0.bottom" timestamp="1584308685786">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state width="1344" height="243" key="GridCell.Tab.0.bottom/0.0.1500.970@0.0.1500.970" timestamp="1584308685786" />
+    <state width="1344" height="243" key="GridCell.Tab.0.center" timestamp="1584308685786">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state width="1344" height="243" key="GridCell.Tab.0.center/0.0.1500.970@0.0.1500.970" timestamp="1584308685786" />
+    <state width="1344" height="243" key="GridCell.Tab.0.left" timestamp="1584308685786">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state width="1344" height="243" key="GridCell.Tab.0.left/0.0.1500.970@0.0.1500.970" timestamp="1584308685786" />
+    <state width="1344" height="243" key="GridCell.Tab.0.right" timestamp="1584308685786">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state width="1344" height="243" key="GridCell.Tab.0.right/0.0.1500.970@0.0.1500.970" timestamp="1584308685786" />
+    <state x="388" y="37" width="744" height="909" key="find.popup" timestamp="1584307907037">
+      <screen x="0" y="0" width="1500" height="970" />
+    </state>
+    <state x="388" y="37" width="744" height="909" key="find.popup/0.0.1500.970@0.0.1500.970" timestamp="1584307907037" />
+  </component>
+</project>

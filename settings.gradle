@@ -1,0 +1,3 @@
+rootProject.name = 'profiles'
+
+include 'profiles-common', 'profiles-paper', 'profiles-waterfall'
