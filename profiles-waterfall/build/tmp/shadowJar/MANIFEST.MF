@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Class-Path: guice-4.0.jar javax.inject-1.jar aopalliance-1.0.jar commons
- -lang3-3.9.jar guava-16.0.1.jar
+ -lang3-3.9.jar lombok-1.18.12.jar guava-16.0.1.jar
 
