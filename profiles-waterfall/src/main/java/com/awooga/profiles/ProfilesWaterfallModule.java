@@ -1,8 +1,11 @@
 package com.awooga.profiles;
 
+import com.awooga.profiles.dao.ProfileDAO;
+import com.awooga.profiles.dao.impl.ProfileDAOImpl;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Singleton;
 
 public class ProfilesWaterfallModule extends AbstractModule {
 
@@ -22,5 +25,6 @@ public class ProfilesWaterfallModule extends AbstractModule {
         // Here we tell Guice to use our plugin instance everytime we need it
         this.bind(ProfilesWaterfallPlugin.class).toInstance(this.plugin);
         bind(ProfilesWaterfallEventListener.class);
+        bind(ProfileDAO.class).to(ProfileDAOImpl.class).in(Singleton.class);
     }
 }

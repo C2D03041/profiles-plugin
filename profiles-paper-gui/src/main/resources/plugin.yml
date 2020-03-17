@@ -1,0 +1,5 @@
+name: ProfilesPaperGui
+version: 1.0.0
+main: com.awooga.profiles.ProfilesPaperGuiPlugin
+api-version: 1.13
+depend: [PlaceholderAPI]

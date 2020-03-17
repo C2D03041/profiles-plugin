@@ -1,17 +1,17 @@
 repositories {
     maven {
-        name = 'sonatype'
-        url = 'https://oss.sonatype.org/content/groups/public/'
+        name = 'papermc-repo'
+        url = 'https://papermc.io/repo/repository/maven-public/'
     }
     maven {
-        name = 'destroystokyo-repo'
-        url = 'https://repo.destroystokyo.com/repository/maven-public/'
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
     }
 }
 
 dependencies {
     compile project(':profiles-common')
-    compileOnly 'io.github.waterfallmc:waterfall-api:1.15-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
     compile 'com.google.inject:guice:4.0'
     shadow 'com.google.inject:guice:4.0'
     compile 'javax.inject:javax.inject:1'

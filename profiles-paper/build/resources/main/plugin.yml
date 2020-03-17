@@ -1,4 +1,0 @@
-name: Profiles
-version: @version@
-main: com.awooga.profiles.ProfilesPaperPlugin
-api-version: 1.13

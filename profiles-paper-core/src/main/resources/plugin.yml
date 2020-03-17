@@ -1,0 +1,4 @@
+name: ProfilesPaperCore
+version: 1.0.0
+main: com.awooga.profiles.ProfilesPaperCorePlugin
+api-version: 1.13

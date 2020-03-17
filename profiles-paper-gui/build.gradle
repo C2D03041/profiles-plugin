@@ -1,17 +1,20 @@
 repositories {
     maven {
+        name = 'papermc-repo'
+        url = 'https://papermc.io/repo/repository/maven-public/'
+    }
+    maven {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
     maven {
-        name = 'destroystokyo-repo'
-        url = 'https://repo.destroystokyo.com/repository/maven-public/'
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
     }
 }
 
 dependencies {
     compile project(':profiles-common')
-    compileOnly 'io.github.waterfallmc:waterfall-api:1.15-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
     compile 'com.google.inject:guice:4.0'
     shadow 'com.google.inject:guice:4.0'
     compile 'javax.inject:javax.inject:1'
@@ -22,6 +25,8 @@ dependencies {
     shadow 'org.apache.commons:commons-lang3:3.9'
     compile 'org.projectlombok:lombok:1.18.12'
     shadow 'org.projectlombok:lombok:1.18.12'
+
+    compileOnly 'me.clip:placeholderapi:2.10.4'
 
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
@@ -36,11 +41,12 @@ processResources {
 
 shadowJar {
     dependencies {
-        include(dependency(':profiles-common'))
+        include(dependency(':profiles-paper-core'))
         include(dependency('com.google.inject:guice:4.0'))
         include(dependency('javax.inject:javax.inject:1'))
         include(dependency('aopalliance:aopalliance:1.0'))
         include(dependency('org.apache.commons:commons-lang3:3.9'))
         include(dependency('org.projectlombok:lombok:1.18.12'))
+        // do not shadow placeholder api
     }
 }
