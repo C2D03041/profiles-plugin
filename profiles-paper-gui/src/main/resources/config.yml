@@ -1,0 +1,3 @@
+# This plugin MUST use mysql as it requires cross-server database
+mysql:
+  connector: "jdbc:mysql://127.0.0.1:3306/profilesplugin?user=testuser&password=testpass"

@@ -1,10 +1,20 @@
 package com.awooga.profiles;
 
+import com.awooga.profiles.dao.PlayerProfilesDAO;
+import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Provides;
+import lombok.SneakyThrows;
+
+import javax.inject.Named;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class ProfilesPaperGuiModule extends AbstractModule {
+
+	public static final String MYSQL_CONNECTION_STRING="MYSQL_CONNECTION_STRING";
 
 	private final ProfilesPaperGuiPlugin plugin;
 
@@ -20,6 +30,24 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		// Here we tell Guice to use our plugin instance everytime we need it
-		this.bind(ProfilesPaperGuiPlugin.class).toInstance(this.plugin);
+		bind(ProfilesPaperGuiPlugin.class).toInstance(this.plugin);
+		bind(ProfilesCommand.class);
+		bind(PlayerProfilesDAO.class).to(PlayerProfilesDAOImpl.class);
+		bind(ProfilesPaperGuiEventListener.class);
+	}
+
+	@Provides
+	@Named(MYSQL_CONNECTION_STRING)
+	String provideConnectionString() {
+		return this.plugin.getConfig().getString("mysql.connector");
+	}
+
+	@SneakyThrows
+	@Provides
+	Connection provideConnection(
+		@Named(MYSQL_CONNECTION_STRING) String connStr
+	) {
+		System.out.println("Connection string "+connStr);
+		return DriverManager.getConnection(connStr);
 	}
 }
