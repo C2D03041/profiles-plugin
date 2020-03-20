@@ -1,3 +1,37 @@
 # This plugin MUST use mysql as it requires cross-server database
 mysql:
-  connector: "jdbc:mysql://127.0.0.1:3306/profilesplugin?user=testuser&password=testpass"
+  connector: "jdbc:mysql://127.0.0.1:3306/profilesplugin?user=testuser&password=testpass&autoReconnect=true"
+
+options:
+  # the maxProfileSlots limit applies to all groups, including admins/op. There is a hard limit of 35 as that is the
+  # number of unused inventory slots in the profile selector GUI. This won't paginate and setting this above 35 will break
+  # things. If the number of profiles a user has exceeds this limit, then the create new profile button is removed.
+  maxProfileSlots: 5
+
+# hooks are commands that are executed as console when a certain event occurs. These commands support placeholder API,
+# and ProfilesPaperGui defines some custom expansion tags:
+# - %playerprofiles_genuineuuid% - this is the user's mojang uuid. This profile is "special" and cannot be deleted. This
+#                                  is sometimes called the "genuine" profile or "mojang" profile
+# - %playerprofiles_profileuuid% - this is a newly created uuid that serves as the profile. If the user is on their genuine
+#                                  profile, then this will evaluate to the same thing as the genuineuuid expansion -- their
+#                                  mojang uuid.
+# - %playerprofiles_deleteduuid% - this only works during the onDeletedProfile hook
+hooks:
+  # onCreateProfile runs after a user creates a new profile, and they've reconnected to the server with that profile
+  # active. Use this hook for first-time profile setup
+  onCreateProfile:
+    - "say User %player_name% has created a new profile: %playerprofiles_profileuuid%"
+    - "lp user %playerprofiles_genuineuuid% clone %playerprofiles_profileuuid%"
+  # on switch profile runs after a user switches to a profile (runs after the onCreateProfile hook for new profiles).
+  # the primary use of this hook is to copy permissions/groups from the main profile to the new one. Do not copy permissions
+  # in the create hook because if you change the permissions on the genuine profile, those changes won't be replicated to
+  # pre-existing profiles (unless your permissions plugin supports players inheriting from other players. Luckperms does not)
+  # onSwitchProfile does *NOT* run when the user switches to the genuine/mojang profile.
+  onSwitchProfile:
+    - "say User %player_name% has switched to profile %playerprofiles_profileuuid%. Their real UUID: %playerprofiles_genuineuuid%"
+    - "lp user %playerprofiles_genuineuuid% clone %playerprofiles_profileuuid%"
+  # onDeleteProfile runs when the user deletes a profile. The user cannot delete a profile when they have that profile
+  # selected, so the deleteduuid and profileuuid are guaranteed to be different.
+  onDeleteProfile:
+    - "say User %player_name% deleted their profile with the uuid %playerprofiles_deleteduuid%"
+    - "lp user %playerprofiles_deleteduuid% clear"

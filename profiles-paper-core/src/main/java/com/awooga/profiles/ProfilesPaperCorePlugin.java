@@ -3,11 +3,15 @@ package com.awooga.profiles;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.Messenger;
 
 public final class ProfilesPaperCorePlugin extends JavaPlugin {
 
     @Inject
     ProfilesPaperCoreMessageListener profilesPaperCoreMessageListener;
+
+    @Inject
+    ProfilesPaperCoreSDK sdk;
 
     @Override
     public void onEnable() {
@@ -17,7 +21,10 @@ public final class ProfilesPaperCorePlugin extends JavaPlugin {
         Injector injector = module.createInjector();
         injector.injectMembers(this);
         // we register the incoming channel
-        getServer().getMessenger().registerIncomingPluginChannel( this, ProfilesConstants.BUNGEE_CHANNEL_NAME, this.profilesPaperCoreMessageListener);
+        Messenger messenger = getServer().getMessenger();
+        messenger.registerIncomingPluginChannel( this, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, this.profilesPaperCoreMessageListener);
+        messenger.registerOutgoingPluginChannel(this, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS);
+        getServer().getPluginManager().registerEvents(this.profilesPaperCoreMessageListener, this);
     }
 
     @Override

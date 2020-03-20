@@ -48,7 +48,9 @@ public class ProfileDAOImpl implements ProfileDAO {
 
 	@Override
 	public void storeOriginalUUID(ProxiedPlayer player) {
-		originalUuidMap.put(player, player.getUniqueId());
+		if(originalUuidMap.get(player) == null) {
+			originalUuidMap.put(player, player.getUniqueId());
+		}
 	}
 
 	@Override

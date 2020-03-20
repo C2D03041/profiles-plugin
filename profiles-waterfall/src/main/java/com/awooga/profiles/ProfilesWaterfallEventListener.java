@@ -2,6 +2,8 @@ package com.awooga.profiles;
 
 import com.awooga.profiles.dao.ProfileDAO;
 import com.google.common.base.Optional;
+import lombok.SneakyThrows;
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.PendingConnection;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.connection.Server;
@@ -12,6 +14,9 @@ import org.apache.commons.lang3.reflect.FieldUtils;
 import org.graalvm.compiler.api.replacements.Fold;
 
 import javax.inject.Inject;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class ProfilesWaterfallEventListener implements Listener {
@@ -54,16 +59,42 @@ public class ProfilesWaterfallEventListener implements Listener {
         UUID originalUuid = profileDAO.getOriginalUUID(player).get();
         Optional<UUID> maybeOverrideUuid = profileDAO.getRealUUID(originalUuid);
 
+        Optional<String> maybeTargetServer = profileDAO.getUserTargetServer(player);
+        if(maybeTargetServer.isPresent()) {
+            String targetServer = maybeTargetServer.get();
+            uuidSetterHelper.sendUserToOriginalServer(player, targetServer);
+            return;
+        }
+
+        // TODO: for some reaosn this ServerSwitchEvent runs twice when we're switching
+        // so we need to suppress one of the notifications. Downstream channel listneers will need
+        // to deduplicate
         if(maybeOverrideUuid.isPresent()) {
             UUID overrideUuid = maybeOverrideUuid.get();
             uuidSetterHelper.setUuidBeforeLogin(player.getPendingConnection(), overrideUuid);
             uuidSetterHelper.notifyServerOfUuidOverride(player);
         }
+    }
 
-        Optional<String> maybeTargetServer = profileDAO.getUserTargetServer(player);
-        if(maybeTargetServer.isPresent()) {
-            String targetServer = maybeTargetServer.get();
-            uuidSetterHelper.sendUserToOriginalServer(player, targetServer);
+    @SneakyThrows
+    @EventHandler
+    public void onPluginMessage(PluginMessageEvent event) {
+        System.out.println("Got plugin message event: "+event+" - "+event.getTag());
+        if (!event.getTag().equals(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS)) {
+            return;
+        }
+        System.out.println("BUNGEE_CHANNEL_NAME_FOR_REQUESTS received a byte stream...");
+        DataInputStream in = new DataInputStream(new ByteArrayInputStream(event.getData()));
+        String channel = in.readUTF();
+
+        if(ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.equals(channel)) {
+            UUID genuineUuid = UUID.fromString(in.readUTF());
+            UUID profileUuid = UUID.fromString(in.readUTF());
+            ProxiedPlayer player = ProxyServer.getInstance().getPlayer(genuineUuid);
+            if(player == null) {
+                throw new Exception("SWITCH_PLAYER_TO_NEW_PROFILE command got a uuid that doesn't refer to an online player");
+            }
+            uuidSetterHelper.setUuid(player, profileUuid);
         }
     }
 }

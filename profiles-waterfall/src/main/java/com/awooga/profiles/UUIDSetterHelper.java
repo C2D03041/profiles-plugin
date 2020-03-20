@@ -14,6 +14,7 @@ import org.apache.commons.lang3.reflect.FieldUtils;
 import com.google.common.base.Optional;
 
 import javax.inject.Inject;
+import java.io.StringWriter;
 import java.util.Map;
 import java.util.UUID;
 
@@ -96,6 +97,15 @@ public class UUIDSetterHelper {
 	public void notifyServerOfUuidOverride(ProxiedPlayer player) {
 		Optional<UUID> originalUuid = profileDao.getOriginalUUID(player);
 		UUID currentUuid = player.getUniqueId();
+
+		Optional<String> maybeTargetServer = profileDao.getUserTargetServer(player);
+		if(maybeTargetServer.isPresent()) {
+			return;
+		}
+
+		System.out.println("Notify stack trace: ");
+		new Exception().printStackTrace();
+
 		System.out.println("Checking to see if we should send a player uuid override event... " + originalUuid + " ---- " + currentUuid);
 		if(originalUuid.isPresent() && !currentUuid.equals(originalUuid.get())) {
 			System.out.println("Sending it");
@@ -103,7 +113,7 @@ public class UUIDSetterHelper {
 			out.writeUTF("PlayerUUIDOverrideEvent");
 			out.writeUTF(originalUuid.get().toString());
 			out.writeUTF(currentUuid.toString());
-			player.getServer().getInfo().sendData(ProfilesConstants.BUNGEE_CHANNEL_NAME, out.toByteArray());
+			player.getServer().getInfo().sendData(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, out.toByteArray());
 		}
 	}
 }

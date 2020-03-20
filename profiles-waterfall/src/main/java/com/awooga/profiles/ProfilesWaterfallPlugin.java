@@ -17,7 +17,8 @@ public final class ProfilesWaterfallPlugin extends Plugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getProxy().registerChannel( ProfilesConstants.BUNGEE_CHANNEL_NAME );
+        getProxy().registerChannel(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS);
+        getProxy().registerChannel(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS);
         ProfilesWaterfallModule module = new ProfilesWaterfallModule(this);
         Injector injector = module.createInjector();
         injector.injectMembers(this);

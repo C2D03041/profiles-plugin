@@ -23,20 +23,30 @@ public final class ProfilesPaperGuiPlugin extends JavaPlugin {
     @Inject
     PlayerProfilesDAO playerProfilesDAO;
 
+    @Inject
+    ProfilesPlaceholderExpansion profilesPlaceholderExpansion;
+
+    @SneakyThrows
     @Override
     public void onEnable() {
         if(!this.checkIfBungee()){ return; }
-
-        saveDefaultConfig();
-        playerProfilesDAO.applyMigrations();
 
         ProfilesPaperGuiModule module = new ProfilesPaperGuiModule(this);
         Injector injector = module.createInjector();
         injector.injectMembers(this);
 
+        saveDefaultConfig();
+        playerProfilesDAO.applyMigrations();
+
         getCommand("profiles").setExecutor(profilesCommand);
         getServer().getPluginManager().registerEvents(profilesCommand, this);
         getServer().getPluginManager().registerEvents(profilesPaperGuiEventListener, this);
+
+        if(getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            profilesPlaceholderExpansion.register();
+        } else {
+            throw new Exception("Couldn't initialize ProfilesPaperGuiPlugin -- missing PlaceholderAPI plugin");
+        }
     }
 
     @SneakyThrows

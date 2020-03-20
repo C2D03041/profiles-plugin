@@ -28,6 +28,11 @@ public class SetUUIDCommand extends Command {
             commandSender.sendMessage(new TextComponent(ChatColor.RED + "Usage: /setuuid [uuid]"));
             return;
         }
+
+        if(!commandSender.hasPermission("profileswaterfall.admin.setuuid")) {
+            commandSender.sendMessage(new TextComponent(ChatColor.RED + "Missing permission to use /setuuid: profileswaterfall.admin.setuuid"));
+            return;
+        }
         ProxiedPlayer player = (ProxiedPlayer) commandSender;
         commandSender.sendMessage(new TextComponent(ChatColor.GREEN + "Hello World!" + player.toString()));
 

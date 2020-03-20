@@ -2,6 +2,7 @@ package com.awooga.profiles.events;
 
 
 import lombok.*;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -21,6 +22,8 @@ public class PlayerUUIDOverrideEvent extends Event {
 	private UUID originalUuid;
 	@Getter
 	private UUID currentUuid;
+	@Getter
+	private Player player;
 
 	@Override
 	public HandlerList getHandlers() {

@@ -2,10 +2,7 @@ package com.awooga.profiles;
 
 import com.awooga.profiles.dao.PlayerProfilesDAO;
 import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
-import com.google.inject.AbstractModule;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Provides;
+import com.google.inject.*;
 import lombok.SneakyThrows;
 
 import javax.inject.Named;
@@ -32,8 +29,15 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 		// Here we tell Guice to use our plugin instance everytime we need it
 		bind(ProfilesPaperGuiPlugin.class).toInstance(this.plugin);
 		bind(ProfilesCommand.class);
-		bind(PlayerProfilesDAO.class).to(PlayerProfilesDAOImpl.class);
+		bind(PlayerProfilesDAO.class).to(PlayerProfilesDAOImpl.class).in(Singleton.class);
 		bind(ProfilesPaperGuiEventListener.class);
+		bind(ProfilesPlaceholderExpansion.class).in(Singleton.class);
+	}
+
+	@Provides
+	@Singleton
+	ProfilesPaperCoreSDK providePaperCoreSdk() {
+		return ProfilesPaperCoreSDK.getInstance();
 	}
 
 	@Provides
@@ -44,10 +48,10 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 
 	@SneakyThrows
 	@Provides
+	@Singleton
 	Connection provideConnection(
 		@Named(MYSQL_CONNECTION_STRING) String connStr
 	) {
-		System.out.println("Connection string "+connStr);
 		return DriverManager.getConnection(connStr);
 	}
 }
