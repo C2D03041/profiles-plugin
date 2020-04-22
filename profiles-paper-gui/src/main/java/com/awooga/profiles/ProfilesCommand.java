@@ -2,6 +2,7 @@ package com.awooga.profiles;
 
 import com.awooga.profiles.dao.PlayerProfilesDAO;
 import com.google.inject.Inject;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -65,6 +66,20 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 		player.openInventory(inv);
 
 		return true;
+	}
+
+	private String getFieldText(Player player, UUID profileUuid, String configPath) {
+		ProfilePlayerImpl fakePlayer = ProfilePlayerImpl.builder()
+			.actualPlayer(player)
+			.overrideUuid(profileUuid)
+		.build();
+
+		String unexpandedString = plugin.getConfig().getString(configPath);
+		String expandedString = PlaceholderAPI.setPlaceholders(fakePlayer, unexpandedString);
+		if(Objects.isNull(expandedString)) {
+			return "";
+		}
+		return expandedString;
 	}
 
 	@EventHandler
@@ -174,8 +189,10 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 	public Inventory generateProfileMenu(Player player, UUID uuid) {
 		Inventory inv = Bukkit.createInventory(null, 27, CHANGE_PROFILE_NAME);
 
-		inv.setItem(9+2, generateItemWithNameAndLore(new ItemStack(Material.GRASS_BLOCK, 1), SWITCH_TO_PROFILE, new String[]{uuid.toString()}));
-		inv.setItem(9+6, generateItemWithNameAndLore(new ItemStack(Material.REDSTONE_BLOCK, 1), DELETE_THIS_PROFILE, new String[]{uuid.toString(), "There is a confirmation screen after you click"}));
+		inv.setItem(9+2, generateItemWithNameAndLore(new ItemStack(Material.GRASS_BLOCK, 1),
+				SWITCH_TO_PROFILE, new String[]{uuid.toString()}));
+		inv.setItem(9+6, generateItemWithNameAndLore(new ItemStack(Material.REDSTONE_BLOCK, 1),
+				DELETE_THIS_PROFILE, new String[]{uuid.toString(), "There is a confirmation screen after you click"}));
 		inv.setItem(18+4, generateItemWithNameAndLore(new ItemStack(Material.BARRIER, 1), BACK, new String[]{}));
 		return inv;
 	}
@@ -209,14 +226,27 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 
 		inv.setItem(35, createButtonItem);
 
-	int index = 0;
+		int index = 0;
 		for(UUID profile : profiles) {
 
 			boolean isSelectedProfile = player.getUniqueId().equals(profile);
+			String bodyText = this.getFieldText(player, profile, isSelectedProfile ? "text.profileSlotBodySelected" : "text.profileSlotBodyUnselected");
+			String titleText = this.getFieldText(player, profile, isSelectedProfile ? "text.profileSlotTitleSelected" : "text.profileSlotTitleUnselected");
 			inv.setItem(index, generateItemWithNameAndLore(
 				new ItemStack(isSelectedProfile ? Material.EMERALD_BLOCK : Material.LAPIS_BLOCK, 1),
-				profile.toString(),
-				new String[]{isSelectedProfile ? "Currently selected profile" : "Click to switch to this profile"}
+				titleText,
+				bodyText.split("\n")
+			));
+			index++;
+		}
+
+		while(index < maxSlots) {
+			String titleText = this.getFieldText(player, player.getUniqueId(), "text.emptyProfileSlotTitle");
+			String bodyText = this.getFieldText(player, player.getUniqueId(), "text.emptyProfileSlotBody");
+			inv.setItem(index, generateItemWithNameAndLore(
+				new ItemStack(Material.BIRCH_BUTTON, 1),
+				titleText,
+				bodyText.split("\n")
 			));
 			index++;
 		}

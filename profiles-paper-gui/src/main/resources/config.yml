@@ -44,6 +44,16 @@ hooks:
     - "say User %player_name% deleted their profile with the uuid %playerprofiles_deleteduuid%"
     - "lp user %playerprofiles_deleteduuid% clear"
 
+# these strings are configurable and all of them support placeholder api
+# "Body" strings support more than one line of text. Title strings do not
 text:
-  profileSlotTitle: "Level %mmocore_level% %mmocore_class%"
-  profileSlotBody: "Health: %mmocore_max_health%\nMana: %mmocore_mana%"
+  profileSlotTitleSelected: "Level %mmocore_level% %mmocore_class%"
+  profileSlotTitleUnselected: "Level %mmocore_level% %mmocore_class%"
+  profileSlotBodyUnselected: |-
+    Health: %mmocore_max_health%
+    Mana: %mmocore_mana%
+    Uuid: %player_uuid%
+  profileSlotBodySelected: "Selected Profile"
+  emptyProfileSlotTitle: "Empty Profile Slot"
+  emptyProfileSlotBody: ""
+
