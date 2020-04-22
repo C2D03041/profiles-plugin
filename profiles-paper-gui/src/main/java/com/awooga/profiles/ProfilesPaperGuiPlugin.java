@@ -31,11 +31,12 @@ public final class ProfilesPaperGuiPlugin extends JavaPlugin {
     public void onEnable() {
         if(!this.checkIfBungee()){ return; }
 
+        saveDefaultConfig();
+
         ProfilesPaperGuiModule module = new ProfilesPaperGuiModule(this);
         Injector injector = module.createInjector();
         injector.injectMembers(this);
 
-        saveDefaultConfig();
         playerProfilesDAO.applyMigrations();
 
         getCommand("profiles").setExecutor(profilesCommand);

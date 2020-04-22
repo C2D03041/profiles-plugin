@@ -3,10 +3,18 @@ mysql:
   connector: "jdbc:mysql://127.0.0.1:3306/profilesplugin?user=testuser&password=testpass&autoReconnect=true"
 
 options:
-  # the maxProfileSlots limit applies to all groups, including admins/op. There is a hard limit of 35 as that is the
-  # number of unused inventory slots in the profile selector GUI. This won't paginate and setting this above 35 will break
-  # things. If the number of profiles a user has exceeds this limit, then the create new profile button is removed.
-  maxProfileSlots: 5
+  # the max profile slot limit applies to all groups, including admins/op. There is a hard limit of 15. You can configure different limits for different roles
+  defaultProfileSlots: 5
+  # You can use any permission here. it doesn't have to be anything specific to ProfilesPlugin.
+  # For each user, we need to know how many profiles slots the user has. We will check all of these permissions, and limit
+  # that user to the number of slots. If a user has multiple of these permissions, we will use the greatest number of
+  # slots out of the permissions that match
+  profileSlotsByPermission:
+    # go into your permissions plugin, and run a command like. `/lp group vip permission set role.vip true`
+    role.vip: 7
+    role.vipplus: 8
+    role.mvp: 9
+    role.mvpplus: 10
 
 # hooks are commands that are executed as console when a certain event occurs. These commands support placeholder API,
 # and ProfilesPaperGui defines some custom expansion tags:
@@ -35,3 +43,7 @@ hooks:
   onDeleteProfile:
     - "say User %player_name% deleted their profile with the uuid %playerprofiles_deleteduuid%"
     - "lp user %playerprofiles_deleteduuid% clear"
+
+text:
+  profileSlotTitle: "Level %mmocore_level% %mmocore_class%"
+  profileSlotBody: "Health: %mmocore_max_health%\nMana: %mmocore_mana%"

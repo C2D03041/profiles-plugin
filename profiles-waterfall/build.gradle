@@ -3,15 +3,22 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    /*
     maven {
         name = 'destroystokyo-repo'
         url = 'https://repo.destroystokyo.com/repository/maven-public/'
+    }*/
+    maven {
+        name = 'bungeecord-repo'
+        url = 'https://oss.sonatype.org/content/repositories/snapshots'
     }
 }
 
 dependencies {
     compile project(':profiles-common')
-    compileOnly 'io.github.waterfallmc:waterfall-api:1.15-SNAPSHOT'
+    //compileOnly 'io.github.waterfallmc:waterfall-api:1.15-SNAPSHOT'
+    compileOnly 'net.md-5:bungeecord-api:1.15-SNAPSHOT'
+
     compile 'com.google.inject:guice:4.0'
     shadow 'com.google.inject:guice:4.0'
     compile 'javax.inject:javax.inject:1'

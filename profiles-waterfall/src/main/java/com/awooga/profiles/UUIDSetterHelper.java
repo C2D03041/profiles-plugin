@@ -39,7 +39,7 @@ public class UUIDSetterHelper {
 		String currentServerName = player.getServer().getInfo().getName();
 		System.out.println("Current server info 1 "+currentServerName);
 
-		Map<String, ServerInfo> servers = ProxyServer.getInstance().getServersCopy();
+		Map<String, ServerInfo> servers = ProxyServer.getInstance().getConfigurationAdapter().getServers();
 		java.util.Optional<Map.Entry<String, ServerInfo>> maybeTempServer = servers.entrySet().stream()
 				.filter(server -> server.getKey() != currentServerName) // not the server the player is on
 				.filter(server -> server.getValue().canAccess(player)) // and the player can connect to it
@@ -103,8 +103,8 @@ public class UUIDSetterHelper {
 			return;
 		}
 
-		System.out.println("Notify stack trace: ");
-		new Exception().printStackTrace();
+		//System.out.println("Notify stack trace: ");
+		//new Exception().printStackTrace();
 
 		System.out.println("Checking to see if we should send a player uuid override event... " + originalUuid + " ---- " + currentUuid);
 		if(originalUuid.isPresent() && !currentUuid.equals(originalUuid.get())) {

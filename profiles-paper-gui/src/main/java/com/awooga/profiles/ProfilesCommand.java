@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,9 +18,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Optional;
-import java.util.Arrays;
-import java.util.UUID;
+import java.util.*;
 
 public class ProfilesCommand implements CommandExecutor, Listener {
 	public static final String PROFILE_MANAGER_NAME = "Profile Manager";
@@ -30,7 +29,8 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 	public static final String BACK = "Back";
 	public static final String DELETE_PROFILE_CONFIRM = "Confirm Profile Deletion";
 
-	public static final String MAX_PROFILE_SLOTS_CONFIG_PATH = "options.maxProfileSlots";
+	public static final String DEFAULT_PROFILE_SLOTS_CONFIG_PATH = "options.defaultProfileSlots";
+	public static final String PROFILE_SLOTS_BY_PERMISSION_CONFIG_PATH = "options.profileSlotsByPermission";
 	private static final String NO_MORE_PROFILE_SLOTS = "Out of profile slots";
 
 	@Inject
@@ -51,12 +51,12 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 	@Override
 	public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
 		if(!(commandSender instanceof Player)) {
-			commandSender.sendMessage(new TextComponent(ChatColor.RED + "/profiles only works for players"));
+			commandSender.sendMessage(ChatColor.RED + "/profiles only works for players");
 			return false;
 		}
 
 		if(!commandSender.hasPermission("profiles.user")) {
-			commandSender.sendMessage(new TextComponent(ChatColor.RED + "Missing permission to use /profiles: profiles.user"));
+			commandSender.sendMessage(ChatColor.RED + "Missing permission to use /profiles: profiles.user");
 			return false;
 		}
 
@@ -185,7 +185,23 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 		UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
 		UUID[] profiles = playerProfilesDAO.getProfilesByGenuineUUID(genuineUuid);
 
-		Integer maxSlots = plugin.getConfig().getInt(MAX_PROFILE_SLOTS_CONFIG_PATH, 5);
+		Integer defaultSlots = plugin.getConfig().getInt(DEFAULT_PROFILE_SLOTS_CONFIG_PATH, 5);
+		if(defaultSlots > 15) {
+			defaultSlots = 15;
+		}
+		Integer maxSlots = defaultSlots;
+		Set<String> permissionKeys = plugin.getConfig().getConfigurationSection(PROFILE_SLOTS_BY_PERMISSION_CONFIG_PATH).getKeys(true);
+		System.out.println("Permission keys"+permissionKeys);
+		for(String key : permissionKeys) {
+			System.out.println("Checking permission "+key);
+			if(!player.hasPermission(key)) {
+				continue;
+			}
+			Integer newMax = plugin.getConfig().getInt(PROFILE_SLOTS_BY_PERMISSION_CONFIG_PATH + "." + key, 0);
+			if(newMax > maxSlots) {
+				maxSlots = newMax;
+			}
+		}
 		System.out.println("Max slots: "+maxSlots+" - profile length: "+profiles.length);
 		ItemStack createButtonItem = maxSlots <= profiles.length ?
 			generateItemWithNameAndLore(new ItemStack(Material.REDSTONE_BLOCK, 1), NO_MORE_PROFILE_SLOTS, new String[]{}) :
