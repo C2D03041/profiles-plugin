@@ -36,8 +36,12 @@ dependencies {
     shadow 'org.projectlombok:lombok:1.18.12'
     compile 'mysql:mysql-connector-java:5.1.41'
     shadow 'mysql:mysql-connector-java:5.1.41'
-    compile 'org.jeasy:easy-states:2.0.0'
-    shadow 'org.jeasy:easy-states:2.0.0'
+    compile 'org.springframework.statemachine:spring-statemachine-core:2.2.0.RELEASE'
+    shadow 'org.springframework.statemachine:spring-statemachine-core:2.2.0.RELEASE'
+    compile 'org.apache.commons:commons-collections4:4.4'
+    shadow 'org.apache.commons:commons-collections4:4.4'
+    compile 'org.javatuples:javatuples:1.2'
+    shadow 'org.javatuples:javatuples:1.2'
 
     compileOnly 'me.clip:placeholderapi:2.10.4'
 
@@ -61,6 +65,8 @@ shadowJar {
         include(dependency('org.apache.commons:commons-lang3:3.9'))
         include(dependency('org.projectlombok:lombok:1.18.12'))
         include(dependency('mysql:mysql-connector-java:5.1.41'))
+        include(dependency('org.apache.commons:commons-collections4:4.4'))
+        include(dependency('org.javatuples:javatuples:1.2'))
         // do not shadow placeholder api
     }
 }

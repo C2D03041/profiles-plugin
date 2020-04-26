@@ -33,7 +33,7 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 				"  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n" +
 				"  `playerUuid` char(36) NOT NULL,\n" +
 				"  `profileUuid` char(36) NOT NULL,\n" +
-				"  `deleted` tinyint(4) NOT NULL,\n" +
+				"  `deleted` tinyint(4) NOT NULL DEFAULT false,\n" +
 				"  PRIMARY KEY (`id`),\n" +
 				"  KEY `playerUuid` (`playerUuid`)\n" +
 				") ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4");

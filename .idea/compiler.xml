@@ -11,9 +11,6 @@
         <module name="profiles.profiles-waterfall.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11">
-      <module name="profiles.profiles-paper.main" target="1.8" />
-      <module name="profiles.profiles-paper.test" target="1.8" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>

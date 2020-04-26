@@ -44,6 +44,70 @@ hooks:
     - "say User %player_name% deleted their profile with the uuid %playerprofiles_deleteduuid%"
     - "lp user %playerprofiles_deleteduuid% clear"
 
+gui:
+  profileSelectorMain:
+    slots:
+      - "0,0,0,0,0,0,0,X,0"
+      - "0,1,1,1,1,1,0,X,S"
+      - "0,1,1,1,1,1,0,X,0"
+      - "0,1,1,1,1,1,0,X,D"
+      - "0,0,0,0,0,0,0,X,0"
+    legend:
+      0: NOTHING
+      X: DIVIDER
+      1: CHAR_SLOT
+      S: SELECT_PROFILE
+      D: DELETE_PROFILE
+    text:
+      windowTitle: "Profile Manager"
+      slotEmpty:
+        title: "Empty Profile Slot"
+        body: "Click to create"
+      slotActive:
+        title: "Level %mmocore_level% %mmocore_class%"
+        body: |-
+          Current character
+          Health: %mmocore_max_health%
+          Mana: %mmocore_mana%
+          Uuid: %player_uuid%
+      slotCreated:
+        title: "Level %mmocore_level% %mmocore_class%"
+        body: |-
+          Health: %mmocore_max_health%
+          Mana: %mmocore_mana%
+          Uuid: %player_uuid%
+      slotBlocked:
+        title: "Upgrade to unlock this slot"
+        body: ""
+      slotBlockedFromDeletion:
+        title: "This profile cannot be deleted"
+        body: "This profile uses your genuine mojang uuid and cannot be deleted for technical reasons."
+      selectButton:
+        title: "Select mode"
+        body: "When you click on a profile slot in select mode, it will change you to that profile"
+      deleteButton:
+        title: "Delete mode"
+        body: "When you click on a profile slot in delete mode, it will open a confirmation screen to delete that profile"
+  profileSelectorDeleteConfirm:
+    slots:
+      - "0,0,0,0,0,0,0,0,0"
+      - "0,0,D,0,0,0,B,0,0"
+      - "0,0,0,0,B,0,0,0,0"
+    legend:
+      0: NOTHING
+      X: DIVIDER
+      D: CONFIRM_DELETE
+      B: BACK
+    text:
+      windowTitle: "Confirm Deletion"
+      confirmDeleteButton:
+        title: "Delete this profile"
+        body: "Are you sure you wish to delete the profile with uuid: %player_uuid%? This operation CANNOT be reversed. Click to confirm"
+      backButton:
+        title: "Back"
+        body: "Do not delete this profile"
+
+
 # these strings are configurable and all of them support placeholder api
 # "Body" strings support more than one line of text. Title strings do not
 text:

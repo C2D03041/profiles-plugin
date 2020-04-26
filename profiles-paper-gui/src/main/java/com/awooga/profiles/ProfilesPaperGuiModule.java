@@ -4,6 +4,8 @@ import com.awooga.profiles.dao.PlayerProfilesDAO;
 import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.*;
 import lombok.SneakyThrows;
+import org.bukkit.configuration.Configuration;
+import org.bukkit.plugin.Plugin;
 
 import javax.inject.Named;
 import java.sql.Connection;
@@ -28,10 +30,17 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 	protected void configure() {
 		// Here we tell Guice to use our plugin instance everytime we need it
 		bind(ProfilesPaperGuiPlugin.class).toInstance(this.plugin);
+		bind(Plugin.class).toInstance(this.plugin);
+
 		bind(ProfilesCommand.class);
 		bind(PlayerProfilesDAO.class).to(PlayerProfilesDAOImpl.class).in(Singleton.class);
 		bind(ProfilesPaperGuiEventListener.class);
 		bind(ProfilesPlaceholderExpansion.class).in(Singleton.class);
+	}
+
+	@Provides
+	Configuration getConfiguration(Plugin plugin) {
+		return plugin.getConfig();
 	}
 
 	@Provides

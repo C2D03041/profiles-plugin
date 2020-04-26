@@ -75,7 +75,17 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 		.build();
 
 		String unexpandedString = plugin.getConfig().getString(configPath);
-		String expandedString = PlaceholderAPI.setPlaceholders(fakePlayer, unexpandedString);
+		if(Objects.isNull(unexpandedString)) {
+			return "";
+		}
+
+		String expandedString;
+		try {
+			expandedString = PlaceholderAPI.setPlaceholders(fakePlayer, unexpandedString);
+		} catch(Exception e) {
+			System.out.println("Caught exception when generating placeholder for /profiles: "+e+" - "+e.getStackTrace());
+			expandedString = "Error Generating Text: "+unexpandedString;
+		}
 		if(Objects.isNull(expandedString)) {
 			return "";
 		}

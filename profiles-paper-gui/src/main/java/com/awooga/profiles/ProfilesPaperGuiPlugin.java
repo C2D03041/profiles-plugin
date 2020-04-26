@@ -12,7 +12,7 @@ import java.sql.Connection;
 public final class ProfilesPaperGuiPlugin extends JavaPlugin {
 
     @Inject
-    private ProfilesCommand profilesCommand;
+    private ProfilesCommand2 profilesCommand2;
 
     @Inject
     Connection connection;
@@ -39,9 +39,11 @@ public final class ProfilesPaperGuiPlugin extends JavaPlugin {
 
         playerProfilesDAO.applyMigrations();
 
-        getCommand("profiles").setExecutor(profilesCommand);
-        getServer().getPluginManager().registerEvents(profilesCommand, this);
+        getCommand("profiles").setExecutor(profilesCommand2);
+        getServer().getPluginManager().registerEvents(profilesCommand2, this);
         getServer().getPluginManager().registerEvents(profilesPaperGuiEventListener, this);
+
+        profilesCommand2.onEnable();
 
         if(getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             profilesPlaceholderExpansion.register();

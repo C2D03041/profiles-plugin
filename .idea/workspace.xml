@@ -2,14 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilePlayerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommandState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/ChestGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/ChestGuiGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/DefaultStatefulItemStackSupplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/StatefulItemStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/StatefulItemStackSupplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/TextSupplier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/BoundFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/BoundUserFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/BukkitEventFSM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/EventFSM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/core/DumbFSM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/core/EventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/core/OnTransitLambda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/core/Transition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/events/BukkitCommandEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/util/HiddenStringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/profiles-paper-core/profiles.profiles-paper-core.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/profiles-paper-core/profiles.profiles-paper-core.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilePlayerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilePlayerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,21 +52,45 @@
         <task path="$PROJECT_DIR$/profiles-waterfall">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/profiles-paper-core">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-paper-core" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-paper-core" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="profiles" type="f1a62948:ProjectNode" />
+                <item name="profiles-paper-core" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="profiles" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -62,25 +108,38 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../minecraft-purgatory-plugin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.awooga.profiles.fsm" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.awooga.profiles.chestgui" />
+      <recent name="com.awooga.profiles.fsm.events" />
+      <recent name="com.awooga.profiles.fsm" />
+      <recent name="com.awooga.profiles.fsm.core" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin" />
       <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin\profiles-common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Liam\IdeaProjects\ProfilesPlugin\profiles-paper\src\main\java\com\awooga\profiles" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.awooga.profiles.fsm.core" />
+      <recent name="com.awooga.profiles" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -122,25 +181,6 @@
         <option name="taskNames">
           <list>
             <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ProfilesPlugin:profiles-waterfall [knows]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/profiles-waterfall" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="knows" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -205,15 +245,37 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="minecraft-profiles-plugin:profiles-paper-core [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/profiles-paper-core" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ProfilesPlugin [shadowJar]" />
+        <item itemvalue="Gradle.minecraft-profiles-plugin:profiles-paper-core [build]" />
         <item itemvalue="Gradle.X:/Users/Liam/IdeaProjects/minecraft-profiles-plugin [init]" />
         <item itemvalue="Gradle.X:/Users/Liam/IdeaProjects/minecraft-profiles-plugin [clean]" />
         <item itemvalue="Gradle.ProfilesPlugin:profiles-waterfall [shadowJar]" />
-        <item itemvalue="Gradle.ProfilesPlugin:profiles-waterfall [knows]" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -244,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587522934684</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1.0.4: Implementing customizable text on the profile menu">
+      <created>1587540643113</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587540643113</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,25 +346,26 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implementing fully functional /setuuid, adding event from bungee to paper to notify of a spoofed uuid" />
     <MESSAGE value="Implementing profile deletion, hooks for profile create, switch, and delete, and max profile slots limit" />
     <MESSAGE value="1.0.3: Allowing player slots to be configurable based on permission node" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.3: Allowing player slots to be configurable based on permission node" />
+    <MESSAGE value="1.0.4: Implementing customizable text on the profile menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.4: Implementing customizable text on the profile menu" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="378" y="183" key="#Plugins" timestamp="1584382299825">
+    <state x="378" y="183" key="#Plugins" timestamp="1587777294412">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="378" y="183" key="#Plugins/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584382299825" />
+    <state x="378" y="183" key="#Plugins/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587777294412" />
     <state x="617" y="191" key="#Scopes" timestamp="1584389328905">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -305,10 +375,11 @@
     </state>
     <state x="338" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584422596051" />
     <state x="198" y="160" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.970@0.0.1500.970" timestamp="1584295740614" />
-    <state x="1048" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1587524555521">
+    <state x="1048" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1587929671836">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1048" y="239" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587524555521" />
+    <state x="1048" y="239" key="#com.intellij.ide.util.MemberChooser/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587700080129" />
+    <state x="1048" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587929671836" />
     <state x="600" y="375" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584256109860">
       <screen x="0" y="0" width="1500" height="970" />
     </state>
@@ -317,6 +388,11 @@
       <screen x="0" y="0" width="1500" height="970" />
     </state>
     <state x="332" y="141" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1500.970@0.0.1500.970" timestamp="1584256107026" />
+    <state x="1082" y="398" width="679" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1587846061717">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1082" y="398" width="679" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587627992774" />
+    <state x="1082" y="398" width="679" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587846061717" />
     <state x="967" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584430163563">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -329,10 +405,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1511" y="290" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584486168153" />
-    <state x="1014" y="136" key="CommitChangelistDialog2" timestamp="1587522933794">
+    <state x="1014" y="136" key="CommitChangelistDialog2" timestamp="1587540642326">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1014" y="136" key="CommitChangelistDialog2/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587522933794" />
+    <state x="1014" y="136" key="CommitChangelistDialog2/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587540642326" />
     <state x="488" y="104" key="DiffContextDialog" timestamp="1584431229663">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -341,26 +417,30 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="566" y="280" key="FileChooserDialogImpl/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1586595409167" />
-    <state width="2399" height="105" key="GridCell.Tab.0.bottom" timestamp="1587540291230">
+    <state width="2005" height="138" key="GridCell.Tab.0.bottom" timestamp="1587940600829">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2399" height="105" key="GridCell.Tab.0.bottom/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587540291230" />
+    <state width="2399" height="161" key="GridCell.Tab.0.bottom/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
     <state width="1344" height="243" key="GridCell.Tab.0.bottom/0.0.1500.970@0.0.1500.970" timestamp="1584380737431" />
-    <state width="2399" height="105" key="GridCell.Tab.0.center" timestamp="1587540291230">
+    <state width="2005" height="138" key="GridCell.Tab.0.bottom/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587940600829" />
+    <state width="2005" height="138" key="GridCell.Tab.0.center" timestamp="1587940600829">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2399" height="105" key="GridCell.Tab.0.center/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587540291230" />
+    <state width="2399" height="161" key="GridCell.Tab.0.center/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
     <state width="1344" height="243" key="GridCell.Tab.0.center/0.0.1500.970@0.0.1500.970" timestamp="1584380737431" />
-    <state width="2399" height="105" key="GridCell.Tab.0.left" timestamp="1587540291230">
+    <state width="2005" height="138" key="GridCell.Tab.0.center/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587940600829" />
+    <state width="2005" height="138" key="GridCell.Tab.0.left" timestamp="1587940600829">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2399" height="105" key="GridCell.Tab.0.left/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587540291230" />
+    <state width="2399" height="161" key="GridCell.Tab.0.left/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
     <state width="1344" height="243" key="GridCell.Tab.0.left/0.0.1500.970@0.0.1500.970" timestamp="1584380737430" />
-    <state width="2399" height="105" key="GridCell.Tab.0.right" timestamp="1587540291230">
+    <state width="2005" height="138" key="GridCell.Tab.0.left/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587940600829" />
+    <state width="2005" height="138" key="GridCell.Tab.0.right" timestamp="1587940600829">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state width="2399" height="105" key="GridCell.Tab.0.right/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587540291230" />
+    <state width="2399" height="161" key="GridCell.Tab.0.right/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
     <state width="1344" height="243" key="GridCell.Tab.0.right/0.0.1500.970@0.0.1500.970" timestamp="1584380737431" />
+    <state width="2005" height="138" key="GridCell.Tab.0.right/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587940600829" />
     <state width="2017" height="328" key="GridCell.Tab.1.bottom" timestamp="1587429298625">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -377,10 +457,11 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state width="2017" height="328" key="GridCell.Tab.1.right/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587429298625" />
-    <state x="837" y="39" width="1040" height="992" key="SettingsEditor" timestamp="1587440566457">
+    <state x="837" y="39" width="1040" height="992" key="SettingsEditor" timestamp="1587857222837">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="837" y="39" width="1040" height="992" key="SettingsEditor/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587440566457" />
+    <state x="837" y="39" key="SettingsEditor/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587857222837" />
     <state x="1117" y="277" key="Vcs.Push.Dialog.v2" timestamp="1584431567076">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -389,22 +470,32 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="673" y="363" key="com.intellij.ide.util.TipDialog/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587363765337" />
-    <state x="1019" y="-1" width="1270" height="975" key="find.popup" timestamp="1587530909677">
+    <state x="223" y="227" width="749" height="514" key="dock-window-1" timestamp="1587940803864">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1019" y="-1" width="1270" height="975" key="find.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587530909677" />
+    <state x="223" y="227" width="749" height="514" key="dock-window-1/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587940803864" />
+    <state x="1019" y="-1" width="1270" height="975" key="find.popup" timestamp="1587938896032">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1019" y="-1" width="1270" height="975" key="find.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587627924968" />
     <state x="388" y="37" width="744" height="909" key="find.popup/0.0.1500.970@0.0.1500.970" timestamp="1584307907037" />
+    <state x="1019" y="-1" width="1270" height="975" key="find.popup/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587938896032" />
     <state x="902" y="164" key="new project wizard" timestamp="1586595025733">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="902" y="164" key="new project wizard/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1586595025733" />
+    <state x="1008" y="274" key="refactoring.ChangeSignatureDialog" timestamp="1587926249258">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1008" y="274" key="refactoring.ChangeSignatureDialog/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587926249258" />
     <state x="442" y="243" width="672" height="677" key="run.anything.popup" timestamp="1584489022273">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="442" y="243" width="672" height="677" key="run.anything.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584489022273" />
-    <state x="449" y="241" width="672" height="678" key="search.everywhere.popup" timestamp="1584686677420">
+    <state x="449" y="241" width="672" height="678" key="search.everywhere.popup" timestamp="1587792695476">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="449" y="241" width="672" height="678" key="search.everywhere.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584686677420" />
+    <state x="449" y="241" width="672" height="678" key="search.everywhere.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587700944333" />
+    <state x="449" y="241" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587792695476" />
   </component>
 </project>
