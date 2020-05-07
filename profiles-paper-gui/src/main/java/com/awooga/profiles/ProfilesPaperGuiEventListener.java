@@ -22,11 +22,11 @@ public class ProfilesPaperGuiEventListener implements Listener {
 
 	@EventHandler
 	public void onUUIDOverrideEvent(PlayerUUIDOverrideEvent ev) {
-		System.out.println("Got PlayerUUIDOverrideEvent");
+		//System.out.println("Got PlayerUUIDOverrideEvent");
 		playerProfilesDAO.storeUuidOverride(ev.getOriginalUuid(), ev.getCurrentUuid());
 		Player player = ev.getPlayer();
 		if(playerProfilesDAO.isProfileIdBrandNew(ev.getCurrentUuid())) {
-			System.out.println("Running new profile hooks...");
+			//System.out.println("Running new profile hooks...");
 			playerProfilesDAO.removeBrandNewProfileId(ev.getCurrentUuid());
 			hookExecutionHelper.executeHooks(player, HookExecutionHelper.PROFILE_CREATE_HOOK);
 		}

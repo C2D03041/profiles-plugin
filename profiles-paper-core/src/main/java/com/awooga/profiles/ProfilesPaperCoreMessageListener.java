@@ -23,7 +23,7 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 
 	@Override
 	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
-		System.out.println("Got message from player uuid channel - "+channel+" - "+player);
+		//System.out.println("Got message from player uuid channel - "+channel+" - "+player);
 		if(!channel.equals( ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS)) {
 			return;
 		}
@@ -40,7 +40,7 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 			// should find the correct player using the uuid
 			Player actualPlayer = plugin.getServer().getPlayer(currentUuid);
 
-			System.out.println("Got actual player: "+actualPlayer);
+			//System.out.println("Got actual player: "+actualPlayer);
 
 			// sometimes, there's a bug where the bungee plugin notifies paper twice for the same user. This should
 			// suppress that for downstream plugins
@@ -53,7 +53,7 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 				.player(actualPlayer)
 			.build();
 
-			System.out.println("Dispatching PlayerUUIDOverrideEvent: "+event);
+			//System.out.println("Dispatching PlayerUUIDOverrideEvent: "+event);
 
 			Bukkit.getServer().getPluginManager().callEvent(event);
 		}

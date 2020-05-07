@@ -126,17 +126,17 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 				player.openInventory(inv);
 			}
 
-			System.out.println("MaybeSwitchToProfile: "+maybeSwitchToProfile);
+			//System.out.println("MaybeSwitchToProfile: "+maybeSwitchToProfile);
 		}
 		else if (event.getView().getTitle().equals(CHANGE_PROFILE_NAME)) { // The inventory is our custom Inventory
 			event.setCancelled(true); // users can't pick up or insert items ever
 			if(clicked == null) { return; }
 			if( slotClicked >= inventory.getSize() ) { return; } // click didn't occur in the chest
 
-			System.out.println("In change profile name hook");
+			//System.out.println("In change profile name hook");
 
 			if(clicked.getType() == Material.GRASS_BLOCK) {
-				System.out.println("ItemMeta"+clicked.getItemMeta().getLore());
+				//System.out.println("ItemMeta"+clicked.getItemMeta().getLore());
 				UUID newUuid = UUID.fromString(clicked.getItemMeta().getLore().get(0));
 				maybeSwitchToProfile = Optional.ofNullable(newUuid);
 			}
@@ -163,7 +163,7 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 			}
 
 			if(clicked.getType() == Material.GRASS_BLOCK) {
-				System.out.println("Actually run delete now");
+				//System.out.println("Actually run delete now");
 				UUID profileUuid = UUID.fromString(clicked.getItemMeta().getLore().get(0));
 				profilesPlaceholderExpansion.storeRecentlyDeletedProfile(player, profileUuid);
 				hookExecutionHelper.executeHooks(player, HookExecutionHelper.PROFILE_DELETE_HOOK);
@@ -178,7 +178,7 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 			UUID targetUuid = maybeSwitchToProfile.get();
 			// TODO: send event to bungee to switch profiles
 			UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
-			System.out.println("Calling sdk.switchPlayerToProfile()");
+			//System.out.println("Calling sdk.switchPlayerToProfile()");
 			profilesPaperCoreSDK.switchPlayerToProfile(player, genuineUuid, targetUuid);
 		}
 	}
@@ -218,9 +218,9 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 		}
 		Integer maxSlots = defaultSlots;
 		Set<String> permissionKeys = plugin.getConfig().getConfigurationSection(PROFILE_SLOTS_BY_PERMISSION_CONFIG_PATH).getKeys(true);
-		System.out.println("Permission keys"+permissionKeys);
+		//System.out.println("Permission keys"+permissionKeys);
 		for(String key : permissionKeys) {
-			System.out.println("Checking permission "+key);
+			//System.out.println("Checking permission "+key);
 			if(!player.hasPermission(key)) {
 				continue;
 			}
@@ -229,7 +229,7 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 				maxSlots = newMax;
 			}
 		}
-		System.out.println("Max slots: "+maxSlots+" - profile length: "+profiles.length);
+		//System.out.println("Max slots: "+maxSlots+" - profile length: "+profiles.length);
 		ItemStack createButtonItem = maxSlots <= profiles.length ?
 			generateItemWithNameAndLore(new ItemStack(Material.REDSTONE_BLOCK, 1), NO_MORE_PROFILE_SLOTS, new String[]{}) :
 			generateItemWithNameAndLore(new ItemStack(Material.GRASS, 1), CREATE_PROFILE, new String[]{});

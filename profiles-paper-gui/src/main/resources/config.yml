@@ -5,10 +5,13 @@ mysql:
 options:
   # the max profile slot limit applies to all groups, including admins/op. There is a hard limit of 15. You can configure different limits for different roles
   defaultProfileSlots: 5
+  # if you're installing this plugin on a new server or you're wiping your server, set this to true. Otherwise, users will lose items
+  # without it
+  disableMojangProfile: true
   # You can use any permission here. it doesn't have to be anything specific to ProfilesPlugin.
   # For each user, we need to know how many profiles slots the user has. We will check all of these permissions, and limit
   # that user to the number of slots. If a user has multiple of these permissions, we will use the greatest number of
-  # slots out of the permissions that match
+  # slots out of the permissions that
   profileSlotsByPermission:
     # go into your permissions plugin, and run a command like. `/lp group vip permission set role.vip true`
     role.vip: 7
@@ -44,6 +47,8 @@ hooks:
     - "say User %player_name% deleted their profile with the uuid %playerprofiles_deleteduuid%"
     - "lp user %playerprofiles_deleteduuid% clear"
 
+# these strings are configurable and all of them support placeholder api
+# Materials: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
 gui:
   profileSelectorMain:
     slots:
@@ -61,33 +66,42 @@ gui:
     text:
       windowTitle: "Profile Manager"
       slotEmpty:
-        title: "Empty Profile Slot"
-        body: "Click to create"
+        title: "&cEmpty Profile Slot"
+        body: "&7Click to create"
+        material: OAK_BUTTON
       slotActive:
-        title: "Level %mmocore_level% %mmocore_class%"
+        title: "&6%mmocore_class% &7| &7Level: &e%mmocore_level%"
         body: |-
-          Current character
-          Health: %mmocore_max_health%
-          Mana: %mmocore_mana%
-          Uuid: %player_uuid%
+          &fHealth: &7%mmocore_max_health%
+          &fMana: &7%mmocore_mana%
+          &fUUID: &7%player_uuid%
+          &8Current character
+        material: GRASS_BLOCK
       slotCreated:
-        title: "Level %mmocore_level% %mmocore_class%"
+        title: "&6%mmocore_class% &7| &7Level: &e%mmocore_level%"
         body: |-
-          Health: %mmocore_max_health%
-          Mana: %mmocore_mana%
-          Uuid: %player_uuid%
+          &fHealth: &7%mmocore_max_health%
+          &fMana: &7%mmocore_mana%
+          &fUUID: &7%player_uuid%
+        material: ARMOR_STAND
       slotBlocked:
-        title: "Upgrade to unlock this slot"
-        body: ""
+        title: "&fUpgrade to unlock this slot"
+        body: "&7Buy a rank from our website for more character slots! &3WebsiteURL"
+        material: BARRIER
       slotBlockedFromDeletion:
-        title: "This profile cannot be deleted"
-        body: "This profile uses your genuine mojang uuid and cannot be deleted for technical reasons."
+        title: "&4This profile cannot be deleted"
+        body: "&cThis profile uses your genuine mojang uuid and cannot be deleted for technical reasons."
+        material: BARRIER
       selectButton:
         title: "Select mode"
         body: "When you click on a profile slot in select mode, it will change you to that profile"
+        activeMaterial: EMERALD_BLOCK
+        inactiveMaterial: OAK_BUTTON
       deleteButton:
-        title: "Delete mode"
-        body: "When you click on a profile slot in delete mode, it will open a confirmation screen to delete that profile"
+        title: "&cDelete mode"
+        body: "&7When you click on a profile slot in delete mode, it will open a confirmation screen to delete that profile"
+        activeMaterial: EMERALD_BLOCK
+        inactiveMaterial: OAK_BUTTON
   profileSelectorDeleteConfirm:
     slots:
       - "0,0,0,0,0,0,0,0,0"
@@ -99,25 +113,12 @@ gui:
       D: CONFIRM_DELETE
       B: BACK
     text:
-      windowTitle: "Confirm Deletion"
+      windowTitle: "&cConfirm Deletion"
       confirmDeleteButton:
-        title: "Delete this profile"
-        body: "Are you sure you wish to delete the profile with uuid: %player_uuid%? This operation CANNOT be reversed. Click to confirm"
+        title: "&cDelete this profile"
+        body: "&7Are you sure you wish to delete the profile with uuid: %player_uuid%? This operation CANNOT be reversed. Click to confirm"
+        material: EMERALD_BLOCK
       backButton:
-        title: "Back"
-        body: "Do not delete this profile"
-
-
-# these strings are configurable and all of them support placeholder api
-# "Body" strings support more than one line of text. Title strings do not
-text:
-  profileSlotTitleSelected: "Level %mmocore_level% %mmocore_class%"
-  profileSlotTitleUnselected: "Level %mmocore_level% %mmocore_class%"
-  profileSlotBodyUnselected: |-
-    Health: %mmocore_max_health%
-    Mana: %mmocore_mana%
-    Uuid: %player_uuid%
-  profileSlotBodySelected: "Selected Profile"
-  emptyProfileSlotTitle: "Empty Profile Slot"
-  emptyProfileSlotBody: ""
-
+        title: "&aBack"
+        body: "&7Do not delete this profile"
+        material: BARRIER

@@ -44,7 +44,7 @@ public abstract class EventFSM<S, E, U> {
 		DumbFSM<S, E> fsm = this.getFsm(user);
 		String from = fsm.getStateName();
 		S fromState = fsm.getStateData();
-		System.out.println("Got from fsm"+fsm+" - "+fsm.getStateName()+" - "+fsm.getStateData());
+		//System.out.println("Got from fsm"+fsm+" - "+fsm.getStateName()+" - "+fsm.getStateData());
 		fsm.fire(event);
 		String to = fsm.getStateName();
 		S toState = fsm.getStateData();
@@ -53,7 +53,7 @@ public abstract class EventFSM<S, E, U> {
 			return;
 		}
 
-		System.out.println("DETECTED STATE TRANSITION - "+from+"->"+to+" stateData: "+fsm.getStateData());
+		//System.out.println("DETECTED STATE TRANSITION - "+from+"->"+to+" stateData: "+fsm.getStateData());
 		final Map<EventType, BoundFunction<S, E>> events = this.getBoundPlainEvents();
 
 		if(events == null) {

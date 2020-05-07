@@ -19,10 +19,10 @@ public class HookExecutionHelper {
 	public void executeHooks(Player player, String hookName) {
 		List<String> commands = plugin.getConfig().getStringList("hooks."+hookName);
 		for(String command : commands) {
-			System.out.println("Running command (unexpanded): "+command);
+			//System.out.println("Running command (unexpanded): "+command);
 			String expandedCommand = PlaceholderAPI.setPlaceholders(player, command);
 
-			System.out.println("Running command (expanded): "+expandedCommand);
+			//System.out.println("Running command (expanded): "+expandedCommand);
 
 			ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
 			Bukkit.dispatchCommand(console, expandedCommand);

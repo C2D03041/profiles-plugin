@@ -50,7 +50,7 @@ public abstract class BukkitEventFSM<S> extends EventFSM<S, Event, Player> imple
 
 	@SneakyThrows
 	private void eventExecutor(@NotNull Listener listener, @NotNull Event event) {
-		System.out.println("EventExecutor got "+event);
+		//System.out.println("EventExecutor got "+event);
 		if(event instanceof PlayerEvent) {
 			this.fire(((PlayerEvent)event).getPlayer(), event);
 		}

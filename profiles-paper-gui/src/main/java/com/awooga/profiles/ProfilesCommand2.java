@@ -15,6 +15,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,13 +24,17 @@ import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.util.ChatPaginator;
 import org.javatuples.Pair;
 import org.javatuples.Triplet;
@@ -53,6 +58,8 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	ProfilesPaperCoreSDK profilesPaperCoreSDK;
 	@Inject
 	Configuration config;
+	@Inject
+	Plugin plugin;
 
 	@Getter
 	private final List<Transition<ProfilesCommandState, Event>> transitions = ImmutableList.<Transition<ProfilesCommandState, Event>>builder()
@@ -113,10 +120,10 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				}
 				ChestGui<UUID> gui = this.guiMap.get(player);
 				String legendName = gui.getLegendNameBySlot(slotClicked);
-				System.out.println("Got legend name: "+legendName);
+				//System.out.println("Got legend name: "+legendName);
 				if(!"SELECT_PROFILE".equals(legendName) && !"DELETE_PROFILE".equals(legendName)) {
 					// reject the transition
-					System.out.println("Not a valid state change, rejecting this transition");
+					//System.out.println("Not a valid state change, rejecting this transition");
 					return null;
 				}
 				return s.toBuilder()
@@ -135,8 +142,8 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				Player player = (Player) event.getWhoClicked();
 
 				Triplet<@NotNull Boolean, UUID, UUID> cont = this.verifyInventoryClickEvent(event, player, s, "CHAR_SLOT", true);
-				System.out.println("Got triplet in mainOpened transition: "+cont);
-				System.out.println("Current state: "+s);
+				//System.out.println("Got triplet in mainOpened transition: "+cont);
+				//System.out.println("Current state: "+s);
 
 				Boolean validationPassed = cont.getValue0();
 				UUID newUuid = cont.getValue1();
@@ -169,7 +176,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				Player player = (Player) event.getWhoClicked();
 
 				Triplet<@NotNull Boolean, UUID, UUID> cont = this.verifyInventoryClickEvent(event, player, s, "CHAR_SLOT", true);
-				System.out.println("Got triplet in deleteOpened transition: "+cont);
+				//System.out.println("Got triplet in deleteOpened transition: "+cont);
 
 				Boolean validationPassed = cont.getValue0();
 				UUID newUuid = cont.getValue1();
@@ -204,7 +211,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				Player player = (Player) event.getWhoClicked();
 
 				Triplet<@NotNull Boolean, UUID, UUID> cont = this.verifyInventoryClickEvent(event, player, s, "BACK", false);
-				System.out.println("Got triplet in deleteOpened transition: "+cont);
+				//System.out.println("Got triplet in deleteOpened transition: "+cont);
 
 				Boolean validationPassed = cont.getValue0();
 				UUID newUuid = cont.getValue1();
@@ -229,7 +236,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				Player player = (Player) event.getWhoClicked();
 
 				Triplet<@NotNull Boolean, UUID, UUID> cont = this.verifyInventoryClickEvent(event, player, s, "CONFIRM_DELETE", false);
-				System.out.println("Got triplet in deleteOpened transition: "+cont);
+				//System.out.println("Got triplet in deleteOpened transition: "+cont);
 
 				Boolean validationPassed = cont.getValue0();
 				UUID targetUuid = cont.getValue2();
@@ -257,15 +264,15 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 
 		ChestGui<UUID> gui = this.guiMap.get(player);
 		String legendName = gui.getLegendNameBySlot(slotClicked);
-		System.out.println("Got legend name: "+legendName);
+		//System.out.println("Got legend name: "+legendName);
 		if(!legendType.equals(legendName)) {
-			System.out.println("Not a valid state change, rejecting this transition");
+			//System.out.println("Not a valid state change, rejecting this transition");
 			return Triplet.with(false, null, null);
 		}
 
 		UUID targetUuid = HiddenStringUtil.getLore(clicked, UUID.class);
 
-		System.out.println("Got clicked uuid "+targetUuid);
+		//System.out.println("Got clicked uuid "+targetUuid);
 
 		if(doCreate && targetUuid == null) {
 			UUID genuineUUID = playerProfilesDAO.getGenuineUUID(player);
@@ -284,7 +291,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	}
 
 	private void createProfile(Player player) {
-		System.out.println("TODO: create profile");
+		//System.out.println("TODO: create profile");
 	}
 
 	Map<Player, ChestGui<UUID>> guiMap = new HashMap<>();
@@ -293,8 +300,9 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	protected final Map<EventType, BoundUserFunction<Player, ProfilesCommandState>> boundEvents = ImmutableMap.of(
 		new EventType.ToState("mainOpened"), this::onMainOpen,
 		new EventType.ToAndFromState("mainOpened", "mainOpened"), this::onMainOpen,
-		new EventType.ToState("deleteOpened"), this::onDeleteOpen//,
-		//new EventType.ToAndFromState("deleteOpened", "deleteOpened"), this::onDeleteOpen
+		new EventType.ToState("deleteOpened"), this::onDeleteOpen,
+		//new EventType.ToAndFromState("deleteOpened", "deleteOpened"), this::onDeleteOpen,
+		new EventType.ToState("closed"), this::onClose
 	);
 
 	@Getter
@@ -304,7 +312,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	protected final ProfilesCommandState defaultStateData = ProfilesCommandState.builder().build();
 
 	private void onMainOpen(Player player, String stateName, ProfilesCommandState state) {
-		System.out.println("On main open"+player+" - "+stateName+" - "+state);
+		//System.out.println("On main open"+player+" - "+stateName+" - "+state);
 
 		final UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
 		final UUID[] profiles = playerProfilesDAO.getProfilesByGenuineUUID(genuineUuid);
@@ -312,44 +320,40 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 		final Integer userMaxSlots = this.getUserMaxSlots(player);
 		final Integer maxSlots = this.getMaxSlots();
 		AtomicReference<Integer> profileSlotIndex = new AtomicReference<>(0);
-		System.out.println("User "+player.getDisplayName()+" has "+userMaxSlots+"/"+maxSlots+" profile slots");
-
-		Player dummyPlayer = ProfilePlayerImpl.builder()
-			.actualPlayer(player)
-			.overrideUuid(state.getAttemptDeleteUuid())
-		.build();
+		//System.out.println("User "+player.getDisplayName()+" has "+userMaxSlots+"/"+maxSlots+" profile slots");
 
 		ChestGui<UUID> gui = chestGuiGenerator.createNewGui("gui.profileSelectorMain", (slot, legendName, getText) -> {
 			StatefulItemStack<UUID> item = DefaultStatefulItemStackSupplier.getStatic(slot, legendName, getText);
 			if(item != null) { return item; }
 
 			if("CHAR_SLOT".equals(legendName)) {
+
 				UUID profile = profileSlotIndex.get() >= profiles.length ? null : profiles[profileSlotIndex.get()];
 				Boolean isEmptyProfile = profile == null;
 				boolean isSelectedProfile = player.getUniqueId().equals(profile);
 
+
+				Player dummyPlayer = isEmptyProfile ? player : ProfilePlayerImpl.builder()
+					.actualPlayer(player)
+					.overrideUuid(profile)
+				.build();
+
+				String key = "slotEmpty";
+				/*
 				String titleKey = "slotEmpty.title";
 				String bodyKey = "slotEmpty.body";
-				Material material = Material.OAK_BUTTON;
-
+				String material = "slotEmpty.material";
+				*/
 				if("DELETE".equals(state.getMenuMode()) && !isEmptyProfile && genuineUuid.equals(profile)) {
-					titleKey = "slotBlockedFromDeletion.title";
-					bodyKey = "slotBlockedFromDeletion.body";
-					material = Material.BARRIER;
+					key = "slotBlockedFromDeletion";
 					profile = null;
 				} else if(isSelectedProfile) {
-					titleKey = "slotActive.title";
-					bodyKey = "slotActive.body";
-					material = Material.GRASS_BLOCK;
+					key = "slotActive";
 				} else if(!isEmptyProfile) {
-					titleKey = "slotCreated.title";
-					bodyKey = "slotCreated.body";
-					material = Material.ARMOR_STAND;
+					key = "slotCreated";
 				} else if(profileSlotIndex.get() >= userMaxSlots) {
 					if(profileSlotIndex.get() < maxSlots) {
-						titleKey = "slotBlocked.title";
-						bodyKey = "slotBlocked.body";
-						material = Material.BARRIER;
+						key = "slotBlocked";
 					} else {
 						return DefaultStatefulItemStackSupplier.getEmpty();
 					}
@@ -358,29 +362,35 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				StatefulItemStack<UUID> res = StatefulItemStack.<UUID>builder()
 					.state(profile)
 					.itemStack(DefaultStatefulItemStackSupplier.generateItem(
-						new ItemStack(material),
-						getText.get(dummyPlayer, titleKey),
-						getText.get(dummyPlayer, bodyKey)
+						new ItemStack(Material.valueOf(getText.get(dummyPlayer, key+".material"))),
+						getText.get(dummyPlayer, key+".title"),
+						getText.get(dummyPlayer, key+".body")
 					))
 				.build();
 				profileSlotIndex.updateAndGet(v -> v + 1);
 				return res;
 			} else if("SELECT_PROFILE".equals(legendName)) {
+				String key = "selectButton";
 				return StatefulItemStack.<UUID>builder()
 					.state(null)
 					.itemStack(DefaultStatefulItemStackSupplier.generateItem(
-						new ItemStack("SELECT".equals(state.getMenuMode()) ? Material.EMERALD_BLOCK : Material.OAK_BUTTON),
-						getText.get(dummyPlayer,"selectButton.title"),
-						getText.get(dummyPlayer,"selectButton.body")
+						new ItemStack(Material.valueOf(getText.get(player,
+							"SELECT".equals(state.getMenuMode()) ? key+".activeMaterial" : key+".inactiveMaterial"
+						))),
+						getText.get(player,key+".title"),
+						getText.get(player,key+".body")
 					))
 				.build();
 			} else if("DELETE_PROFILE".equals(legendName)) {
+				String key = "deleteButton";
 				return StatefulItemStack.<UUID>builder()
 					.state(null)
 					.itemStack(DefaultStatefulItemStackSupplier.generateItem(
-						new ItemStack("DELETE".equals(state.getMenuMode()) ? Material.EMERALD_BLOCK : Material.OAK_BUTTON),
-						getText.get(dummyPlayer,"deleteButton.title"),
-						getText.get(dummyPlayer,"deleteButton.body")
+						new ItemStack(Material.valueOf(getText.get(player,
+							"DELETE".equals(state.getMenuMode()) ? key+".activeMaterial" : key+".inactiveMaterial"
+						))),
+						getText.get(player,key+".title"),
+						getText.get(player,key+".body")
 					))
 				.build();
 			} else {
@@ -405,7 +415,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	}
 
 	private void onDeleteOpen(Player player, String stateName, ProfilesCommandState state) {
-		System.out.println("On delete open"+player+" - "+stateName+" - "+state);
+		//System.out.println("On delete open"+player+" - "+stateName+" - "+state);
 
 		final UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
 		final UUID[] profiles = playerProfilesDAO.getProfilesByGenuineUUID(genuineUuid);
@@ -413,7 +423,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 		final Integer userMaxSlots = this.getUserMaxSlots(player);
 		final Integer maxSlots = this.getMaxSlots();
 		AtomicReference<Integer> profileSlotIndex = new AtomicReference<>(0);
-		System.out.println("User "+player.getDisplayName()+" has "+userMaxSlots+"/"+maxSlots+" profile slots");
+		//System.out.println("User "+player.getDisplayName()+" has "+userMaxSlots+"/"+maxSlots+" profile slots");
 
 
 		Player dummyPlayer = ProfilePlayerImpl.builder()
@@ -427,21 +437,23 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 			if(item != null) { return item; }
 
 			if("CONFIRM_DELETE".equals(legendName)) {
+				String key = "confirmDeleteButton";
 				return StatefulItemStack.<UUID>builder()
 					.state(state.getAttemptDeleteUuid())
 					.itemStack(DefaultStatefulItemStackSupplier.generateItem(
-						new ItemStack(Material.EMERALD_BLOCK),
-						getText.get(dummyPlayer,"confirmDeleteButton.title"),
-						getText.get(dummyPlayer,"confirmDeleteButton.body")
+						new ItemStack(Material.valueOf(getText.get(dummyPlayer, key+".material"))),
+						getText.get(dummyPlayer,key+".title"),
+						getText.get(dummyPlayer,key+".body")
 					))
 					.build();
 			} else if("BACK".equals(legendName)) {
+				String key = "backButton";
 				return StatefulItemStack.<UUID>builder()
 					.state(null)
 					.itemStack(DefaultStatefulItemStackSupplier.generateItem(
-						new ItemStack(Material.BARRIER),
-						getText.get(dummyPlayer,"backButton.title"),
-						getText.get(dummyPlayer,"backButton.body")
+						new ItemStack(Material.valueOf(getText.get(dummyPlayer, key+".material"))),
+						getText.get(dummyPlayer,key+".title"),
+						getText.get(dummyPlayer,key+".body")
 					))
 					.build();
 			} else {
@@ -451,6 +463,40 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 		});
 		this.guiMap.put(player, gui);
 		this.updateInventory(player, gui.getInventory(player));
+	}
+	private void onClose(Player player, String stateName, ProfilesCommandState state) {
+		if(config.getBoolean("options.disableMojangProfile", true)) {
+			UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
+			if(player.getUniqueId().equals(genuineUuid)) {
+				Bukkit.getScheduler().runTask(plugin, bukkitTask -> {
+					this.onCommand(player, null, "", "".split(""));
+				});
+			}
+		}
+	}
+
+	@EventHandler(priority=EventPriority.LOWEST)
+	public void onInventoryCloseEvent(PlayerMoveEvent event) {
+		Player player = event.getPlayer();
+		if (config.getBoolean("options.disableMojangProfile", true)) {
+			UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
+			if (player.getUniqueId().equals(genuineUuid)) {
+				event.setCancelled(true);
+			}
+		}
+	}
+
+	@EventHandler
+	public void onPlayerConnect(PlayerJoinEvent event) {
+		Player player = event.getPlayer();
+		Bukkit.getScheduler().runTaskLater(plugin, bukkitTask -> {
+			if(config.getBoolean("options.disableMojangProfile", true)) {
+				UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
+				if(player.getUniqueId().equals(genuineUuid)) {
+					this.onCommand(event.getPlayer(), null, "", "".split(""));
+				}
+			}
+		}, 20);
 	}
 
 	@EventHandler

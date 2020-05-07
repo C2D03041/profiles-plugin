@@ -5,6 +5,7 @@ import com.awooga.profiles.events.PlayerUUIDOverrideEvent;
 import com.google.inject.Inject;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +22,9 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 
 	@Inject
 	Connection conn;
+
+	@Inject
+	Configuration config;
 
 	HashSet<UUID> brandNewUuids = new HashSet();
 	HashMap<UUID, UUID> originalUuidMap = new HashMap();
@@ -44,7 +48,7 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 	public UUID getGenuineUUID(Player player) {
 		UUID currentUuid = player.getUniqueId();
 		UUID originalUuid = originalUuidMap.get(currentUuid);
-		System.out.println("Trying to determine genuine uuid - "+currentUuid+" --- "+originalUuid);
+		//System.out.println("Trying to determine genuine uuid - "+currentUuid+" --- "+originalUuid);
 		if(originalUuid != null) {
 			return genuineUuids.contains(originalUuid) ? originalUuid : currentUuid;
 		}
@@ -91,7 +95,9 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 		ResultSet resultSet = stmt.executeQuery();
 		ArrayList<UUID> result = new ArrayList();
 
-		result.add(genuineUuid);
+		if(!config.getBoolean("options.disableMojangProfile", true)) {
+			result.add(genuineUuid);
+		}
 		while (resultSet.next()) {
 			result.add(UUID.fromString(resultSet.getString(1)));
 		}
