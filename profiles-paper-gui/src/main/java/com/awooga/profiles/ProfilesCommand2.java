@@ -506,16 +506,40 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if(!(sender instanceof Player)) {
-			sender.sendMessage(ChatColor.RED + "/profiles only works for players");
+
+		Player target = null;
+		if(args.length == 0) {
+			if (!(sender instanceof Player)) {
+				sender.sendMessage(ChatColor.RED + "/profiles only works for players");
+				return false;
+			}
+			if(!sender.hasPermission("profiles.user")) {
+				sender.sendMessage(ChatColor.RED + "Missing permission to use /profiles: profiles.user");
+				return false;
+			}
+			target = (Player) sender;
+		} else {
+			if(!sender.hasPermission("profiles.user-others")) {
+				sender.sendMessage(ChatColor.RED + "Missing permission to use /profiles [other]: profiles.user-others");
+				return false;
+			}
+			String arg = args[0];
+			target = Bukkit.getPlayer(arg);
+			if(target == null) {
+				try {
+					UUID uuid = UUID.fromString(arg);
+					target = Bukkit.getPlayer(uuid);
+				} catch(Exception ignored) {
+				}
+			}
+		}
+
+		if(target == null) {
+			sender.sendMessage(ChatColor.RED + "Couldn't identify who the target. Usage: /profile [name|uuid]");
 			return false;
 		}
 
-		if(!sender.hasPermission("profiles.user")) {
-			sender.sendMessage(ChatColor.RED + "Missing permission to use /profiles: profiles.user");
-			return false;
-		}
-		this.fire((Player)sender, BukkitCommandEvent.builder()
+		this.fire(target, BukkitCommandEvent.builder()
 			.args(args)
 			.command(command)
 			.label(label)

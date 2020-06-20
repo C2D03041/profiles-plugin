@@ -23,7 +23,9 @@ public final class ProfilesPaperCorePlugin extends JavaPlugin {
         // we register the incoming channel
         Messenger messenger = getServer().getMessenger();
         messenger.registerIncomingPluginChannel( this, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, this.profilesPaperCoreMessageListener);
+        messenger.registerIncomingPluginChannel( this, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS.length() - 1), this.profilesPaperCoreMessageListener);
         messenger.registerOutgoingPluginChannel(this, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS);
+        messenger.registerOutgoingPluginChannel(this, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.length() - 1));
         getServer().getPluginManager().registerEvents(this.profilesPaperCoreMessageListener, this);
     }
 

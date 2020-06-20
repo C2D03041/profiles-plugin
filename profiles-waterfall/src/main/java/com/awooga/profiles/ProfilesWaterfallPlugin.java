@@ -18,7 +18,9 @@ public final class ProfilesWaterfallPlugin extends Plugin {
     public void onEnable() {
         // Plugin startup logic
         getProxy().registerChannel(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS);
+        getProxy().registerChannel(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS.length() - 1));
         getProxy().registerChannel(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS);
+        getProxy().registerChannel(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.length() - 1));
         ProfilesWaterfallModule module = new ProfilesWaterfallModule(this);
         Injector injector = module.createInjector();
         injector.injectMembers(this);

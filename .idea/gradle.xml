@@ -11,11 +11,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/profiles-common" />
             <option value="$PROJECT_DIR$/profiles-paper-core" />
+            <option value="$PROJECT_DIR$/profiles-paper-disabler" />
             <option value="$PROJECT_DIR$/profiles-paper-gui" />
             <option value="$PROJECT_DIR$/profiles-waterfall" />
           </set>
         </option>
-        <option name="useAutoImport" value="true" />
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>

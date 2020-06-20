@@ -1,33 +1,14 @@
 package com.awooga.profiles;
 
-import com.awooga.profiles.dao.PlayerProfilesDAO;
-import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import lombok.SneakyThrows;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.sql.Connection;
-
-public final class ProfilesPaperGuiPlugin extends JavaPlugin {
+public final class ProfilesPaperDisablerPlugin extends JavaPlugin {
 
     @Inject
-    private ProfilesCommand2 profilesCommand2;
-
-    @Inject
-    private ProfilesAdminCommand profilesAdminCommand;
-
-    @Inject
-    Connection connection;
-
-    @Inject
-    ProfilesPaperGuiEventListener profilesPaperGuiEventListener;
-
-    @Inject
-    PlayerProfilesDAO playerProfilesDAO;
-
-    @Inject
-    ProfilesPlaceholderExpansion profilesPlaceholderExpansion;
+    ProfilesPaperDisablerEventListener profilesPaperDisablerEventListener;
 
     @SneakyThrows
     @Override
@@ -36,33 +17,17 @@ public final class ProfilesPaperGuiPlugin extends JavaPlugin {
 
         saveDefaultConfig();
 
-        ProfilesPaperGuiModule module = new ProfilesPaperGuiModule(this);
+        ProfilesPaperDisablerModule module = new ProfilesPaperDisablerModule(this);
         Injector injector = module.createInjector();
         injector.injectMembers(this);
 
-        playerProfilesDAO.applyMigrations();
-
-        getCommand("profiles").setExecutor(profilesCommand2);
-        getCommand("profilesadmin").setExecutor(profilesAdminCommand);
-        getServer().getPluginManager().registerEvents(profilesCommand2, this);
-        getServer().getPluginManager().registerEvents(profilesPaperGuiEventListener, this);
-
-        profilesCommand2.onEnable();
-
-        if(getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            profilesPlaceholderExpansion.register();
-        } else {
-            throw new Exception("Couldn't initialize ProfilesPaperGuiPlugin -- missing PlaceholderAPI plugin");
-        }
+        getServer().getPluginManager().registerEvents(profilesPaperDisablerEventListener, this);
     }
 
     @SneakyThrows
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        if(connection != null && !connection.isClosed()) {
-            connection.close();
-        }
     }
 
     // we check like that if the specified server is BungeeCord.

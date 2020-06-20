@@ -1,0 +1,5 @@
+name: ProfilesPaperDisabler
+version: 1.0.10
+main: com.awooga.profiles.ProfilesPaperDisablerPlugin
+api-version: 1.13
+depend: [ProfilesPaperCore]

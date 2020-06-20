@@ -80,14 +80,20 @@ public class ProfilesWaterfallEventListener implements Listener {
     @EventHandler
     public void onPluginMessage(PluginMessageEvent event) {
         System.out.println("Got plugin message event: "+event+" - "+event.getTag());
-        if (!event.getTag().equals(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS)) {
+        if (
+            !event.getTag().equals(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS) &&
+            !event.getTag().equals(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.length() - 1))
+        ) {
             return;
         }
         System.out.println("BUNGEE_CHANNEL_NAME_FOR_REQUESTS received a byte stream...");
         DataInputStream in = new DataInputStream(new ByteArrayInputStream(event.getData()));
         String channel = in.readUTF();
 
-        if(ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.equals(channel)) {
+        if(
+            ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.equals(channel) ||
+            ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.substring(0, ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.length() - 1).equals(channel)
+        ) {
             UUID genuineUuid = UUID.fromString(in.readUTF());
             UUID profileUuid = UUID.fromString(in.readUTF());
             ProxiedPlayer player = ProxyServer.getInstance().getPlayer(genuineUuid);

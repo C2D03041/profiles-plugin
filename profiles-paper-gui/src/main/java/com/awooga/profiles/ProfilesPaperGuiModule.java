@@ -5,6 +5,7 @@ import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.*;
 import lombok.SneakyThrows;
 import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
 import javax.inject.Named;
@@ -32,15 +33,10 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 		bind(ProfilesPaperGuiPlugin.class).toInstance(this.plugin);
 		bind(Plugin.class).toInstance(this.plugin);
 
-		bind(ProfilesCommand.class);
 		bind(PlayerProfilesDAO.class).to(PlayerProfilesDAOImpl.class).in(Singleton.class);
-		bind(ProfilesPaperGuiEventListener.class);
 		bind(ProfilesPlaceholderExpansion.class).in(Singleton.class);
-	}
-
-	@Provides
-	Configuration getConfiguration(Plugin plugin) {
-		return plugin.getConfig();
+		bind(ConfigurationDelegator.class).in(Singleton.class);
+		bind(Configuration.class).to(ConfigurationDelegator.class);
 	}
 
 	@Provides

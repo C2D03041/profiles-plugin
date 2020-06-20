@@ -56,13 +56,16 @@ gui:
       - "0,1,1,1,1,1,0,X,S"
       - "0,1,1,1,1,1,0,X,0"
       - "0,1,1,1,1,1,0,X,D"
-      - "0,0,0,0,0,0,0,X,0"
+      - "B,0,0,0,0,0,0,X,0"
+    # legend supports any bukkit Material here in addition to the special types like SELECT_PROFILE. When a user clicks
+    # on a slot with a plain material, nothing will happen
     legend:
       0: NOTHING
       X: DIVIDER
       1: CHAR_SLOT
       S: SELECT_PROFILE
       D: DELETE_PROFILE
+      B: BEEF
     text:
       windowTitle: "Profile Manager"
       slotEmpty:

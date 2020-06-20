@@ -24,12 +24,18 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 	@Override
 	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
 		//System.out.println("Got message from player uuid channel - "+channel+" - "+player);
-		if(!channel.equals( ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS)) {
+		if(
+			!channel.equals( ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS) &&
+			!channel.equals( ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS.length() - 1))
+		) {
 			return;
 		}
 		ByteArrayDataInput in = ByteStreams.newDataInput( message );
 		String subChannel = in.readUTF();
-		if(subChannel.equalsIgnoreCase(ProfilesConstants.PLAYER_UUID_OVERRIDE_EVENT)){
+		if(
+			subChannel.equalsIgnoreCase(ProfilesConstants.PLAYER_UUID_OVERRIDE_EVENT) ||
+			subChannel.equalsIgnoreCase(ProfilesConstants.PLAYER_UUID_OVERRIDE_EVENT.substring(0, ProfilesConstants.PLAYER_UUID_OVERRIDE_EVENT.length() - 1))
+		) {
 			String originalUuidString = in.readUTF();
 			String currentUuidString = in.readUTF();
 

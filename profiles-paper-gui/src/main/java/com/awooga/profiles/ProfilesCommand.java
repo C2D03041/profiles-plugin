@@ -61,6 +61,10 @@ public class ProfilesCommand implements CommandExecutor, Listener {
 			return false;
 		}
 
+		if(args.length == 1 && !"".equals(args[0])) {
+
+		}
+
 		Player player = (Player) commandSender;
 		Inventory inv = this.generateMainMenu(player);
 		player.openInventory(inv);

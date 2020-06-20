@@ -1,4 +1,4 @@
-- add an option to disable the mojang profile
-- /profilesadmin reload
-- [8:44 AM] !MexBot: also, any way to use /profiles through the console? like /profiles username, so this will open the gui for the specific player
-- allow Divider and Nothing to be customizable in config
+- DONE: add an option to disable the mojang profile
+- DONE: /profilesadmin reload
+- DONE: [8:44 AM] !MexBot: also, any way to use /profiles through the console? like /profiles username, so this will open the gui for the specific player
+- DONE: allow Divider and Nothing to be customizable in config

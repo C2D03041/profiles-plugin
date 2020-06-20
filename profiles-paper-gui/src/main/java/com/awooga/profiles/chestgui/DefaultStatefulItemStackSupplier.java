@@ -22,6 +22,18 @@ public class DefaultStatefulItemStackSupplier<S> implements StatefulItemStackSup
 			return getEmpty();
 		}
 
+		Material mat = Material.matchMaterial(legendName);
+		if(mat != null) {
+			return StatefulItemStack.<S>builder()
+				.state(null)
+				.itemStack(generateItem(
+					new ItemStack(mat),
+					" ",
+					null
+				))
+			.build();
+		}
+
 		return null;
 	}
 

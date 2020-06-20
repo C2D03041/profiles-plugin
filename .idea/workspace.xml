@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/feature-requests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/profiles-paper-core/profiles.profiles-paper-core.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/profiles-paper-core/profiles.profiles-paper-core.main.iml" afterDir="false" />
+    <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="1.0.8: `/profilesadmin reload`, customizable">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/profiles-paper-disabler/profiles.profiles-paper-disabler.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/java/com/awooga/profiles/ProfilesPaperDisablerEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/java/com/awooga/profiles/ProfilesPaperDisablerModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/java/com/awooga/profiles/ProfilesPaperDisablerPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/java/com/awooga/profiles/util/HiddenStringUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ConfigurationDelegator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesAdminCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-common/src/main/java/com/awooga/profiles/ProfilesConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-common/src/main/java/com/awooga/profiles/ProfilesConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCoreMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCoreMessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCorePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCorePlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/HookExecutionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/HookExecutionHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/feature-requests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/feature-requests.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand2.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/BukkitEventFSM.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/BukkitEventFSM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/EventFSM.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/fsm/EventFSM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesPaperGuiPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/DefaultStatefulItemStackSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/chestgui/DefaultStatefulItemStackSupplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/ProfilesWaterfallEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/ProfilesWaterfallEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/ProfilesWaterfallPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/ProfilesWaterfallPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,11 +111,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/profiles-paper-disabler/src/main/resources" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -115,16 +134,18 @@
       <recent name="com.awooga.profiles.fsm" />
       <recent name="com.awooga.profiles.fsm.core" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Liam\IdeaProjects\ProfilesPlugin\profiles-paper\src\main\java\com\awooga\profiles" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin\profiles-paper-disabler\src\main\resources" />
+      <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin\profiles-paper-disabler" />
+      <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin" />
+      <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin\profiles-common" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.awooga.profiles.fsm.core" />
       <recent name="com.awooga.profiles" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin" />
-      <recent name="X:\Users\Liam\IdeaProjects\minecraft-profiles-plugin\profiles-common" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Liam\IdeaProjects\ProfilesPlugin\profiles-paper\src\main\java\com\awooga\profiles" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -303,8 +324,25 @@
       <option name="project" value="LOCAL" />
       <updated>1587941070311</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1.0.6 and 7 - Custom materials for inventory items, and disable mojang profile flag">
+      <created>1588835788896</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588835788896</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -349,7 +387,8 @@
     <MESSAGE value="1.0.3: Allowing player slots to be configurable based on permission node" />
     <MESSAGE value="1.0.4: Implementing customizable text on the profile menu" />
     <MESSAGE value="1.0.5: Rewrite of ProfilesCommand, implementing proper state machine" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.5: Rewrite of ProfilesCommand, implementing proper state machine" />
+    <MESSAGE value="1.0.6 and 7 - Custom materials for inventory items, and disable mojang profile flag" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.6 and 7 - Custom materials for inventory items, and disable mojang profile flag" />
   </component>
   <component name="WindowStateProjectService">
     <state x="515" y="207" key="#Plugins" timestamp="1588039895756">
@@ -358,6 +397,11 @@
     <state x="378" y="183" key="#Plugins/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584382299825" />
     <state x="378" y="183" key="#Plugins/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587777294412" />
     <state x="515" y="207" key="#Plugins/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588039895756" />
+    <state x="-1895" y="62" key="#Project_Structure" timestamp="1592159854935">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
+    </state>
+    <state x="-1895" y="62" key="#Project_Structure/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592159854935" />
+    <state x="665" y="107" key="#Project_Structure/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589161082171" />
     <state x="617" y="191" key="#Scopes" timestamp="1584389328905">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -386,10 +430,11 @@
     </state>
     <state x="1082" y="398" width="679" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587627992774" />
     <state x="1082" y="398" width="679" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587846061717" />
-    <state x="967" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584430163563">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="-1593" y="-45" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592162511891">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state x="967" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584430163563" />
+    <state x="-1593" y="-45" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592162511891" />
     <state x="1250" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584430214065">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -398,11 +443,12 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1511" y="290" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584486168153" />
-    <state x="1014" y="136" key="CommitChangelistDialog2" timestamp="1587941069725">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="1150" y="190" key="CommitChangelistDialog2" timestamp="1589166812953">
+      <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="1014" y="136" key="CommitChangelistDialog2/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587540642326" />
     <state x="1014" y="136" key="CommitChangelistDialog2/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587941069725" />
+    <state x="1150" y="190" key="CommitChangelistDialog2/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589166812953" />
     <state x="488" y="104" key="DiffContextDialog" timestamp="1584431229663">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
@@ -411,54 +457,66 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="566" y="280" key="FileChooserDialogImpl/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1586595409167" />
-    <state width="1969" height="173" key="GridCell.Tab.0.bottom" timestamp="1588575992467">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state width="1599" height="166" key="GridCell.Tab.0.bottom" timestamp="1592688288202">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state width="2399" height="161" key="GridCell.Tab.0.bottom/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
+    <state width="1599" height="166" key="GridCell.Tab.0.bottom/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592688288202" />
     <state width="1344" height="243" key="GridCell.Tab.0.bottom/0.0.1500.970@0.0.1500.970" timestamp="1584380737431" />
     <state width="2005" height="173" key="GridCell.Tab.0.bottom/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587951536651" />
-    <state width="1969" height="173" key="GridCell.Tab.0.bottom/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575992467" />
-    <state width="1969" height="173" key="GridCell.Tab.0.center" timestamp="1588575992467">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state width="984" height="173" key="GridCell.Tab.0.bottom/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1590026323605" />
+    <state width="1969" height="173" key="GridCell.Tab.0.bottom/0.0.2560.1050/2560.45.1280.994@0.0.2560.1050" timestamp="1591240858599" />
+    <state width="1599" height="166" key="GridCell.Tab.0.center" timestamp="1592688288202">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state width="2399" height="161" key="GridCell.Tab.0.center/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
+    <state width="1599" height="166" key="GridCell.Tab.0.center/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592688288202" />
     <state width="1344" height="243" key="GridCell.Tab.0.center/0.0.1500.970@0.0.1500.970" timestamp="1584380737431" />
     <state width="2005" height="173" key="GridCell.Tab.0.center/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587951536651" />
-    <state width="1969" height="173" key="GridCell.Tab.0.center/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575992467" />
-    <state width="1969" height="173" key="GridCell.Tab.0.left" timestamp="1588575992467">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state width="984" height="173" key="GridCell.Tab.0.center/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1590026323603" />
+    <state width="1969" height="173" key="GridCell.Tab.0.center/0.0.2560.1050/2560.45.1280.994@0.0.2560.1050" timestamp="1591240858599" />
+    <state width="1599" height="166" key="GridCell.Tab.0.left" timestamp="1592688288202">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state width="2399" height="161" key="GridCell.Tab.0.left/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
+    <state width="1599" height="166" key="GridCell.Tab.0.left/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592688288202" />
     <state width="1344" height="243" key="GridCell.Tab.0.left/0.0.1500.970@0.0.1500.970" timestamp="1584380737430" />
     <state width="2005" height="173" key="GridCell.Tab.0.left/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587951536651" />
-    <state width="1969" height="173" key="GridCell.Tab.0.left/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575992467" />
-    <state width="1969" height="173" key="GridCell.Tab.0.right" timestamp="1588575992467">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state width="984" height="173" key="GridCell.Tab.0.left/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1590026323598" />
+    <state width="1969" height="173" key="GridCell.Tab.0.left/0.0.2560.1050/2560.45.1280.994@0.0.2560.1050" timestamp="1591240858599" />
+    <state width="1599" height="166" key="GridCell.Tab.0.right" timestamp="1592688288202">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state width="2399" height="161" key="GridCell.Tab.0.right/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587705128518" />
+    <state width="1599" height="166" key="GridCell.Tab.0.right/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592688288202" />
     <state width="1344" height="243" key="GridCell.Tab.0.right/0.0.1500.970@0.0.1500.970" timestamp="1584380737431" />
     <state width="2005" height="173" key="GridCell.Tab.0.right/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587951536651" />
-    <state width="1969" height="173" key="GridCell.Tab.0.right/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575992467" />
-    <state width="1969" height="328" key="GridCell.Tab.1.bottom" timestamp="1588575425250">
+    <state width="984" height="173" key="GridCell.Tab.0.right/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1590026323603" />
+    <state width="1969" height="173" key="GridCell.Tab.0.right/0.0.2560.1050/2560.45.1280.994@0.0.2560.1050" timestamp="1591240858599" />
+    <state width="1969" height="328" key="GridCell.Tab.1.bottom" timestamp="1589155738706">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="2017" height="328" key="GridCell.Tab.1.bottom/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587429298625" />
-    <state width="1969" height="328" key="GridCell.Tab.1.bottom/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575425250" />
-    <state width="1969" height="328" key="GridCell.Tab.1.center" timestamp="1588575425250">
+    <state width="1969" height="328" key="GridCell.Tab.1.bottom/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589155738706" />
+    <state width="1969" height="328" key="GridCell.Tab.1.center" timestamp="1589155738706">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="2017" height="328" key="GridCell.Tab.1.center/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587429298625" />
-    <state width="1969" height="328" key="GridCell.Tab.1.center/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575425250" />
-    <state width="1969" height="328" key="GridCell.Tab.1.left" timestamp="1588575425250">
+    <state width="1969" height="328" key="GridCell.Tab.1.center/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589155738706" />
+    <state width="1969" height="328" key="GridCell.Tab.1.left" timestamp="1589155738706">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="2017" height="328" key="GridCell.Tab.1.left/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587429298625" />
-    <state width="1969" height="328" key="GridCell.Tab.1.left/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575425250" />
-    <state width="1969" height="328" key="GridCell.Tab.1.right" timestamp="1588575425250">
+    <state width="1969" height="328" key="GridCell.Tab.1.left/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589155738706" />
+    <state width="1969" height="328" key="GridCell.Tab.1.right" timestamp="1589155738706">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state width="2017" height="328" key="GridCell.Tab.1.right/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587429298625" />
-    <state width="1969" height="328" key="GridCell.Tab.1.right/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588575425250" />
+    <state width="1969" height="328" key="GridCell.Tab.1.right/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589155738706" />
+    <state x="-1507" y="221" key="RollbackChangesDialog" timestamp="1592687344293">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
+    </state>
+    <state x="-1507" y="221" key="RollbackChangesDialog/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592687344293" />
     <state x="837" y="39" width="1040" height="992" key="SettingsEditor" timestamp="1588614465109">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -473,6 +531,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="673" y="363" key="com.intellij.ide.util.TipDialog/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587363765337" />
+    <state x="890" y="424" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589155656135">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="890" y="424" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1589155656135" />
     <state x="1241" y="451" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588150631880">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -481,17 +543,20 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="223" y="227" width="749" height="514" key="dock-window-1/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587940803864" />
-    <state x="1019" y="-1" width="1270" height="985" key="find.popup" timestamp="1588043937053">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state x="-2504" y="4" width="1270" height="986" key="find.popup" timestamp="1592687234164">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state x="1019" y="-1" width="1270" height="975" key="find.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587627924968" />
+    <state x="-2504" y="4" width="1270" height="986" key="find.popup/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592687234164" />
+    <state x="195" y="61" width="635" height="933" key="find.popup/0.0.1280.994@0.0.1280.994" timestamp="1591817209183" />
     <state x="388" y="37" width="744" height="909" key="find.popup/0.0.1500.970@0.0.1500.970" timestamp="1584307907037" />
     <state x="1019" y="-1" width="1270" height="975" key="find.popup/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587951527430" />
     <state x="1019" y="-1" width="1270" height="985" key="find.popup/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588043937053" />
-    <state x="459" y="160" key="new project wizard" timestamp="1588039939197">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state x="-1612" y="225" key="new project wizard" timestamp="1592159800618">
+      <screen x="-2560" y="-45" width="2560" height="1050" />
     </state>
     <state x="902" y="164" key="new project wizard/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1586595025733" />
+    <state x="-1612" y="225" key="new project wizard/-2560.-45.2560.1050/0.0.1280.994@-2560.-45.2560.1050" timestamp="1592159800618" />
     <state x="459" y="160" key="new project wizard/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588039939197" />
     <state x="1008" y="274" key="refactoring.ChangeSignatureDialog" timestamp="1587942250674">
       <screen x="0" y="0" width="2560" height="1040" />
@@ -501,10 +566,11 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="442" y="243" width="672" height="677" key="run.anything.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1584489022273" />
-    <state x="449" y="243" width="672" height="685" key="search.everywhere.popup" timestamp="1588614461329">
-      <screen x="0" y="0" width="2560" height="1050" />
+    <state x="225" y="230" width="672" height="649" key="search.everywhere.popup" timestamp="1591817203254">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="449" y="241" width="672" height="678" key="search.everywhere.popup/-1280.0.1280.984/0.0.2560.1040@0.0.2560.1040" timestamp="1587700944333" />
+    <state x="225" y="230" width="672" height="649" key="search.everywhere.popup/0.0.1280.994@0.0.1280.994" timestamp="1591817203254" />
     <state x="449" y="241" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040/-1280.45.1280.984@0.0.2560.1040" timestamp="1587792695476" />
     <state x="449" y="243" width="672" height="685" key="search.everywhere.popup/0.0.2560.1050/-1280.45.1280.994@0.0.2560.1050" timestamp="1588614461329" />
   </component>

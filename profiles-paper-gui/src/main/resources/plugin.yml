@@ -1,5 +1,5 @@
 name: ProfilesPaperGui
-version: 1.0.6
+version: 1.0.10
 main: com.awooga.profiles.ProfilesPaperGuiPlugin
 api-version: 1.13
 depend: [PlaceholderAPI, ProfilesPaperCore]
@@ -7,3 +7,6 @@ commands:
   profiles:
     description: Main command to switch user profiles
     usage: /profiles
+  profilesadmin:
+    description: Admin command to administrate Profiles plugin
+    usage: /profilesadmin
