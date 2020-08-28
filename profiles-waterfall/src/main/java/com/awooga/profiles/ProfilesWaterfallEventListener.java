@@ -10,8 +10,6 @@ import net.md_5.bungee.api.connection.Server;
 import net.md_5.bungee.api.event.*;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
-import org.apache.commons.lang3.reflect.FieldUtils;
-import org.graalvm.compiler.api.replacements.Fold;
 
 import javax.inject.Inject;
 import java.io.ByteArrayInputStream;

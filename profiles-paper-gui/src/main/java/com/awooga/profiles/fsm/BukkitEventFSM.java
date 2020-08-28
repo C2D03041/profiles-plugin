@@ -7,11 +7,14 @@ import com.google.inject.Inject;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryInteractEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -96,6 +99,12 @@ public abstract class BukkitEventFSM<S> extends EventFSM<S, Event, Player> imple
 	}
 
 	protected S getStateByPlayer(Player user) {
+		DumbFSM<S, Event> fsm = this.getFsm(user);
+		if(fsm == null) { return null; }
+		return fsm.getStateData();
+	}
+
+	protected S resetPlayer(Player user) {
 		DumbFSM<S, Event> fsm = this.getFsm(user);
 		if(fsm == null) { return null; }
 		return fsm.getStateData();

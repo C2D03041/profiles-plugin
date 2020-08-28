@@ -31,6 +31,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.util.BoundingBox;
 import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.NotNull;
 
 import java.net.InetSocketAddress;
 import java.util.*;
@@ -810,6 +811,18 @@ public class ProfilePlayerImpl implements Player, OfflinePlayer {
 		return actualPlayer.undiscoverRecipes(recipes);
 	}
 
+	/*
+	@Override
+	public boolean hasDiscoveredRecipe(@NotNull NamespacedKey recipe) {
+		return actualPlayer.hasDiscoveredRecipe(recipe);
+	}
+
+	@Override
+	public @NotNull Set<NamespacedKey> getDiscoveredRecipes() {
+		return actualPlayer.getDiscoveredRecipes();
+	}
+	 */
+
 	@Override
 	@Deprecated
 	public Entity getShoulderEntityLeft() {
@@ -1084,6 +1097,13 @@ public class ProfilePlayerImpl implements Player, OfflinePlayer {
 	public boolean isCollidable() {
 		return actualPlayer.isCollidable();
 	}
+
+	/*
+	@Override
+	public @NotNull Set<UUID> getCollidableExemptions() {
+		return this.getCollidableExemptions();
+	}
+	 */
 
 	@Override
 	public <T> T getMemory(MemoryKey<T> memoryKey) {

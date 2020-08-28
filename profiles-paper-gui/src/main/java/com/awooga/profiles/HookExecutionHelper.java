@@ -3,6 +3,7 @@ package com.awooga.profiles;
 import com.google.inject.Inject;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
@@ -20,7 +21,7 @@ public class HookExecutionHelper {
 		List<String> commands = plugin.getConfig().getStringList("hooks."+hookName);
 		for(String command : commands) {
 			//System.out.println("Running command (unexpanded): "+command);
-			String expandedCommand = PlaceholderAPI.setPlaceholders(player, command);
+			String expandedCommand = PlaceholderAPI.setPlaceholders((OfflinePlayer) player, command);
 
 			//System.out.println("Running command (expanded): "+expandedCommand);
 

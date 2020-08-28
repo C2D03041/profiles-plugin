@@ -1,10 +1,10 @@
 package com.awooga.profiles.chestgui;
 
 import com.awooga.profiles.util.HiddenStringUtil;
-import com.google.gson.Gson;
 import lombok.Builder;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -30,7 +30,7 @@ public class ChestGui<S> {
         slotConfig.forEach(row -> {
             Arrays.asList(row.split(",")).forEach(slotChar -> {
                 String legendName = this.config.getString(this.configKey+".legend."+slotChar);
-                StatefulItemStack<S> stack = supplier.get(i.get(), legendName, this::getTextPrependBaseKey)
+                StatefulItemStack<S> stack = supplier.get(i.get(), legendName, this::getText)
                     .toBuilder()
                     .legendName(legendName)
                 .build();
@@ -55,7 +55,7 @@ public class ChestGui<S> {
     }
 
     public String getWindowTitle(Player player) {
-        return this.getTextPrependBaseKey(player,"windowTitle");
+        return this.getText(player,"windowTitle");
     }
 
     public String getLegendNameBySlot(Integer i) {
@@ -73,14 +73,14 @@ public class ChestGui<S> {
         return null;
     }
 
-    String getTextPrependBaseKey(Player player, String key) {
-        return getText(player, this.configKey + ".text."+ key);
+    public String getText(OfflinePlayer player, String key) {
+        return getTextRaw(player, this.configKey + ".text."+ key);
     }
 
-    String getText(Player player, String key) {
+    String getTextRaw(OfflinePlayer player, String key) {
         String unexpandedText = config.getString(key);
         try {
-            return PlaceholderAPI.setPlaceholders(player, unexpandedText);
+            return PlaceholderAPI.setPlaceholders((OfflinePlayer) player, unexpandedText == null ? "" : unexpandedText);
         } catch(Exception e) {
             System.out.println("Caught exception when generating placeholder for /profiles: "+e);
             e.printStackTrace();

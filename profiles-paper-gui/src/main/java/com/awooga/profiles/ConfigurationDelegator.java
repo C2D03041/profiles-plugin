@@ -2,6 +2,7 @@ package com.awooga.profiles;
 
 import lombok.experimental.Delegate;
 import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.ConfigurationOptions;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 

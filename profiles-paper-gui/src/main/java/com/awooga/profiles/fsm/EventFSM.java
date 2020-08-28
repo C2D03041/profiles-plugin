@@ -36,7 +36,7 @@ public abstract class EventFSM<S, E, U> {
 		return stateByUser.get(user);
 	}
 
-	void removeUser(U user) {
+	public void removeUser(U user) {
 		this.stateByUser.remove(user);
 	}
 

@@ -16,13 +16,21 @@ repositories {
     maven {
         url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
     }
+
+    flatDir {
+        dirs 'dependencies'
+    }
+}
+
+compileJava {
+    options.compilerArgs << '-Xlint:deprecation'
 }
 
 dependencies {
     compile project(':profiles-paper-core')
     //compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
     compileOnly 'org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT'
-    compileOnly 'org.jetbrains:annotations:16.0.1'
+    compileOnly 'org.jetbrains:annotations:19.0.0'
 
     compile 'com.google.inject:guice:4.0'
     shadow 'com.google.inject:guice:4.0'
@@ -43,8 +51,11 @@ dependencies {
     compile 'org.javatuples:javatuples:1.2'
     shadow 'org.javatuples:javatuples:1.2'
 
-    compileOnly 'me.clip:placeholderapi:2.10.4'
+    implementation 'net.Indyuce.mmocore:MMOCore:1.4.3'
 
+    compileOnly 'me.clip:placeholderapi:2.10.8'
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'

@@ -8,7 +8,14 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.12/48e4e5d60309ebd833bc528dcf77668eab3cd72c/lombok-1.18.12.jar" />
         </processorPath>
+        <module name="profiles.profiles-paper-disabler.test" />
+        <module name="profiles.profiles-waterfall.test" />
+        <module name="profiles.profiles-paper-core.test" />
+        <module name="profiles.profiles-paper-gui.test" />
+        <module name="profiles.profiles-paper-disabler.main" />
         <module name="profiles.profiles-waterfall.main" />
+        <module name="profiles.profiles-paper-gui.main" />
+        <module name="profiles.profiles-paper-core.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />

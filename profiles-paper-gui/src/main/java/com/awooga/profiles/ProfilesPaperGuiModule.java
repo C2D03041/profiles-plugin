@@ -4,6 +4,7 @@ import com.awooga.profiles.dao.PlayerProfilesDAO;
 import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.*;
 import lombok.SneakyThrows;
+import net.Indyuce.mmocore.MMOCore;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -11,6 +12,7 @@ import org.bukkit.plugin.Plugin;
 import javax.inject.Named;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Optional;
 
 public class ProfilesPaperGuiModule extends AbstractModule {
 
@@ -37,6 +39,14 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 		bind(ProfilesPlaceholderExpansion.class).in(Singleton.class);
 		bind(ConfigurationDelegator.class).in(Singleton.class);
 		bind(Configuration.class).to(ConfigurationDelegator.class);
+	}
+
+	@Provides
+	@Singleton
+	Optional<MMOCore> provideMMOCore() {
+		Plugin plugin = this.plugin.getServer().getPluginManager().getPlugin("MMOCore");
+		return Optional.ofNullable(plugin)
+			.map(t -> (MMOCore) t);
 	}
 
 	@Provides

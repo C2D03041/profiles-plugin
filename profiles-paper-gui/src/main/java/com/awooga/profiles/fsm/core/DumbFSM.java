@@ -34,7 +34,7 @@ public class DumbFSM<S, E> {
 				this.stateData :
 				transitFn.onTransit(this.stateName, transition.getTo(), this.stateData, event);
 			if (newState != null) {
-				System.out.println("Updating stateName to: " + transition.getTo());
+				//System.out.println("Updating stateName to: " + transition.getTo());
 				this.stateData = newState;
 				this.stateName = transition.getTo();
 				return;

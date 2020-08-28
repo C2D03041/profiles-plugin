@@ -8,6 +8,12 @@ options:
   # if you're installing this plugin on a new server or you're wiping your server, set this to true. Otherwise, users will lose items
   # without it
   disableMojangProfile: true
+  # if you have issues with placeholder text from some plugins, try setting this to true. This mechanism is less efficient,
+  # so only set it to true if necessary. Setting this flag to true REQUIRES options.disableMojangProfile to be true.
+  #
+  # The following plugins are known to require this flag to be set to true:
+  # * MMOCore
+  preferCachedPlaceholders: false
   # You can use any permission here. it doesn't have to be anything specific to ProfilesPlugin.
   # For each user, we need to know how many profiles slots the user has. We will check all of these permissions, and limit
   # that user to the number of slots. If a user has multiple of these permissions, we will use the greatest number of
@@ -72,6 +78,9 @@ gui:
         title: "&cEmpty Profile Slot"
         body: "&7Click to create"
         material: OAK_BUTTON
+      slotBrandNew: # material is not supported, inherits material from slotCreated
+        title: "&cNewly Created Profile"
+        body: "&7Click to initialize"
       slotActive:
         title: "&6%mmocore_class% &7| &7Level: &e%mmocore_level%"
         body: |-

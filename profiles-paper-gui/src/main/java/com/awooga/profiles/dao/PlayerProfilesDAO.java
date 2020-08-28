@@ -1,21 +1,29 @@
 package com.awooga.profiles.dao;
 
 import lombok.SneakyThrows;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.javatuples.Pair;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface PlayerProfilesDAO {
 	public void applyMigrations();
 
-	public UUID getGenuineUUID(Player player);
-	public UUID getProfileUUID(Player player);
+	public UUID getGenuineUUID(OfflinePlayer player);
+	public UUID getProfileUUID(OfflinePlayer player);
 
 	UUID createNewProfile(Player player);
 
 	boolean deleteProfile(Player player, UUID profile);
 
-	public UUID[] getProfilesByGenuineUUID(UUID uuid);
+	@Deprecated(forRemoval=true)
+	UUID[] getProfilesByGenuineUUID(UUID uuid);
+
+	List<ProfileEntity> getProfileEntitiesByGenuineUUID(UUID uuid);
+
+	void save(ProfileEntity ent);
 
 	void storeUuidOverride(UUID current, UUID override);
 
