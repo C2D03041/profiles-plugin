@@ -43,8 +43,8 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 			"  `playerUuid` char(36) NOT NULL,\n" +
 			"  `profileUuid` char(36) NOT NULL,\n" +
 			"  `deleted` tinyint(4) NOT NULL DEFAULT false,\n" +
-			"  `cachedPlaceholderTitle` TINYTEXT NOT NULL DEFAULT \"\",\n" +
-			"  `cachedPlaceholderBody` TINYTEXT NOT NULL DEFAULT \"\",\n" +
+			"  `cachedPlaceholderTitle` TINYTEXT,\n" +
+			"  `cachedPlaceholderBody` TINYTEXT,\n" +
 			"  PRIMARY KEY (`id`),\n" +
 			"  KEY `playerUuid` (`playerUuid`)\n" +
 			") ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4"

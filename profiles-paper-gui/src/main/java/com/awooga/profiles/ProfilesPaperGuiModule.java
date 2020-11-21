@@ -4,7 +4,7 @@ import com.awooga.profiles.dao.PlayerProfilesDAO;
 import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.*;
 import lombok.SneakyThrows;
-import net.Indyuce.mmocore.MMOCore;
+//import net.Indyuce.mmocore.MMOCore;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -41,6 +41,7 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 		bind(Configuration.class).to(ConfigurationDelegator.class);
 	}
 
+	/*
 	@Provides
 	@Singleton
 	Optional<MMOCore> provideMMOCore() {
@@ -48,6 +49,7 @@ public class ProfilesPaperGuiModule extends AbstractModule {
 		return Optional.ofNullable(plugin)
 			.map(t -> (MMOCore) t);
 	}
+	 */
 
 	@Provides
 	@Singleton

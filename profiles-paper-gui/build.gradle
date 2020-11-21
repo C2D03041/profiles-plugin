@@ -51,7 +51,7 @@ dependencies {
     compile 'org.javatuples:javatuples:1.2'
     shadow 'org.javatuples:javatuples:1.2'
 
-    implementation 'net.Indyuce.mmocore:MMOCore:1.4.3'
+    //implementation 'net.Indyuce.mmocore:MMOCore:1.4.3'
 
     compileOnly 'me.clip:placeholderapi:2.10.8'
 

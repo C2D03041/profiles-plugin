@@ -16,7 +16,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
 import me.clip.placeholderapi.PlaceholderAPI;
-import net.Indyuce.mmocore.MMOCore;
+//import net.Indyuce.mmocore.MMOCore;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -66,8 +66,8 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	Configuration config;
 	@Inject
 	Plugin plugin;
-	@Inject
-	Optional<MMOCore> maybeMMOCore;
+	//@Inject
+	//Optional<MMOCore> maybeMMOCore;
 
 	@Getter
 	private final List<Transition<ProfilesCommandState, Event>> transitions = ImmutableList.<Transition<ProfilesCommandState, Event>>builder()
@@ -372,11 +372,13 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				}
 				final Optional<ProfileEntity> profile = tProfile;
 
+				/*
 				maybeMMOCore.ifPresent(mmoCore -> {
 					if(profile.isPresent()) {
 						//MMOCore.plugin.dataProvider.getDataManager().setup(dummyPlayer);
 					}
 				});
+				 */
 
 				final OfflinePlayer nullPlayer = dummyPlayer.orElse(null);
 				boolean preferCachedPlaceholders = config.getBoolean("options.preferCachedPlaceholders", false);
@@ -390,7 +392,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 								.filter(v -> !"".equals(v))
 								.orElseGet(() -> getText.get(nullPlayer, "slotBrandNew.title"))
 							: getText.get(nullPlayer, key+".title"),
-						preferCachedPlaceholders
+						preferCachedPlaceholders && "slotCreated".equals(key)
 							? profile.map(ProfileEntity::getCachedPlaceholderBody)
 								.filter(v -> !"".equals(v))
 								.orElseGet(() -> getText.get(nullPlayer, "slotBrandNew.body"))

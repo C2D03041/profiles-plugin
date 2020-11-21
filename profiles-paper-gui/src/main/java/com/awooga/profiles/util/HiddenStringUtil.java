@@ -2,6 +2,7 @@ package com.awooga.profiles.util;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -14,6 +15,7 @@ public class HiddenStringUtil {
 	// String constants. TODO Change them to something unique to avoid conflict with other plugins!
 	private static final String SEQUENCE_HEADER = "" + ChatColor.RESET + ChatColor.RED + ChatColor.RESET;
 	private static final String SEQUENCE_FOOTER = "" + ChatColor.RESET + ChatColor.DARK_BLUE + ChatColor.RESET;
+	private static final char COLOR_CHAR = ChatColor.COLOR_CHAR;
 
 	public static void addLore(ItemStack itemStack, Object data) {
 		ItemMeta meta = itemStack.getItemMeta();
@@ -24,7 +26,9 @@ public class HiddenStringUtil {
 
 		Gson gson = new Gson();
 		String json = gson.toJson(data);
-		lore.add(encodeString(json));
+		String newLore = encodeString(json);
+		//System.out.println("Putting new lore: "+newLore);
+		lore.add(newLore);
 
 		meta.setLore(lore);
 		itemStack.setItemMeta(meta);
@@ -34,12 +38,21 @@ public class HiddenStringUtil {
 		ItemMeta meta = itemStack.getItemMeta();
 		List<String> lore = meta.getLore();
 
-		if(lore.size() == 0) { return null; }
+		if(lore == null || lore.size() == 0) { return null; }
 
-		String relevantLore = lore.get(lore.size()-1);
-		Gson gson = new Gson();
-		T data = gson.fromJson(extractHiddenString(relevantLore), className);
-		return data;
+		for(String relevantLore : lore) {
+			//String relevantLore = lore.get(lore.size() - 1);
+			Gson gson = new Gson();
+			//System.out.println("Pulling string from: " + relevantLore);
+			String hiddenString = extractHiddenString(relevantLore);
+			//System.out.println("Got hidden string: " + hiddenString);
+			if(hiddenString == null) {
+				continue;
+			}
+			T data = gson.fromJson(hiddenString, className);
+			return data;
+		}
+		return null;
 	}
 
 	public static String encodeString(String hiddenString) {
@@ -83,6 +96,7 @@ public class HiddenStringUtil {
 
 		int start = input.indexOf(SEQUENCE_HEADER);
 		int end = input.indexOf(SEQUENCE_FOOTER);
+		//System.out.println("Got start and end: "+start+", "+end);
 
 		if (start < 0 || end < 0) {
 			return null;
@@ -93,25 +107,43 @@ public class HiddenStringUtil {
 
 	private static String stringToColors(String normal) {
 		if (normal == null) return null;
+		//System.out.println("Putting string: "+normal);
 
 		byte[] bytes = normal.getBytes(StandardCharsets.UTF_8);
-		char[] chars = new char[bytes.length * 4];
+		//System.out.println("Bytes length: "+bytes.length);
+		//char[] chars = new char[bytes.length * 4];
+
+		StringBuilder sb = new StringBuilder();
+		sb.ensureCapacity(bytes.length * 4);
 
 		for (int i = 0; i < bytes.length; i++) {
 			char[] hex = byteToHex(bytes[i]);
-			chars[i * 4] = ChatColor.COLOR_CHAR;
+			//System.out.println("got hex: "+ Arrays.toString(hex));
+			//System.out.println("got hex2: "+hex[0]);
+			//System.out.println("got hex2: "+hex[1]);
+			sb.append(COLOR_CHAR);
+			sb.append(hex[0]);
+			sb.append(COLOR_CHAR);
+			sb.append(hex[1]);
+			/*
+			chars[i * 4] = COLOR_CHAR;
 			chars[i * 4 + 1] = hex[0];
-			chars[i * 4 + 2] = ChatColor.COLOR_CHAR;
+			chars[i * 4 + 2] = COLOR_CHAR;
 			chars[i * 4 + 3] = hex[1];
+			 */
 		}
 
-		return new String(chars);
+		//System.out.println("Generated chars: "+sb.length());
+		//System.out.println("Generated chars2: "+sb.toString());
+		//System.out.println("Generated chars3: "+sb.toString().length());
+
+		return sb.toString();
 	}
 
 	private static String colorsToString(String colors) {
 		if (colors == null) return null;
 
-		colors = colors.toLowerCase().replace("" + ChatColor.COLOR_CHAR, "");
+		colors = colors.toLowerCase().replace("" + COLOR_CHAR, "");
 
 		if (colors.length() % 2 != 0) {
 			colors = colors.substring(0, (colors.length() / 2) * 2);

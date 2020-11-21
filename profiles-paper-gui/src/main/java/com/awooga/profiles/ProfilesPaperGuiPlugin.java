@@ -5,7 +5,7 @@ import com.awooga.profiles.dao.impl.PlayerProfilesDAOImpl;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import lombok.SneakyThrows;
-import net.Indyuce.mmocore.MMOCore;
+//import net.Indyuce.mmocore.MMOCore;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,8 +32,8 @@ public final class ProfilesPaperGuiPlugin extends JavaPlugin {
     @Inject
     ProfilesPlaceholderExpansion profilesPlaceholderExpansion;
 
-    @Inject
-    Optional<MMOCore> maybeMMOCore;
+    //@Inject
+    //Optional<MMOCore> maybeMMOCore;
 
     @SneakyThrows
     @Override
@@ -55,11 +55,13 @@ public final class ProfilesPaperGuiPlugin extends JavaPlugin {
 
         profilesCommand2.onEnable();
 
+        /*
         if(maybeMMOCore.isPresent()) {
             System.out.println("Detected MMOCore -- registering required hooks to integrate with ProfilesPaperGui");
         } else {
             System.out.println("Did not detect MMOCore");
         }
+         */
 
         if(getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             profilesPlaceholderExpansion.register();
