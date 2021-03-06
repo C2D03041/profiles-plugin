@@ -35,7 +35,7 @@ public class ProfilesPaperGuiEventListener implements Listener {
 	@Inject
 	ChestGuiGenerator chestGuiGenerator;
 
-	@EventHandler
+	@EventHandler(priority=EventPriority.LOWEST)
 	public void onUUIDOverrideEvent(PlayerUUIDOverrideEvent ev) {
 		//System.out.println("Got PlayerUUIDOverrideEvent");
 		playerProfilesDAO.storeUuidOverride(ev.getOriginalUuid(), ev.getCurrentUuid());

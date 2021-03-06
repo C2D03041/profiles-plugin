@@ -542,6 +542,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 
 	@EventHandler
 	public void onPlayerConnect(PlayerUUIDOverrideEvent event) {
+		System.out.println("GOT PLAYER CONNECT EVENT");
 		Player player = event.getPlayer();
 		Bukkit.getScheduler().runTaskLater(plugin, bukkitTask -> {
 			if(config.getBoolean("options.disableMojangProfile", true)) {

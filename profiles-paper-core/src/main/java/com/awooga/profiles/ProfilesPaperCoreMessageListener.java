@@ -44,14 +44,17 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 
 			// necessary because the upstream bungee plugin may not use the correct player channel to notify paper, we
 			// should find the correct player using the uuid
-			Player actualPlayer = plugin.getServer().getPlayer(currentUuid);
+			//Player actualPlayer = plugin.getServer().getPlayer(currentUuid);
+			//if(actualPlayer == null) {
+				Player actualPlayer = player; // use the player thru which bungee communicated to Paper as the user who is getting the assignment
+			//}
 
 			//System.out.println("Got actual player: "+actualPlayer);
 
 			// sometimes, there's a bug where the bungee plugin notifies paper twice for the same user. This should
 			// suppress that for downstream plugins
-			if(actualPlayer == null || this.suppressDuplicates.contains(actualPlayer)) { return; }
-			this.suppressDuplicates.add(actualPlayer);
+			//if(actualPlayer == null || this.suppressDuplicates.contains(actualPlayer)) { return; }
+			//this.suppressDuplicates.add(actualPlayer);
 
 			PlayerUUIDOverrideEvent event = PlayerUUIDOverrideEvent.builder()
 				.originalUuid(originalUuid)
