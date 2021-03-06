@@ -106,14 +106,15 @@ public class UUIDSetterHelper {
 		//System.out.println("Notify stack trace: ");
 		//new Exception().printStackTrace();
 
-		System.out.println("Checking to see if we should send a player uuid override event... " + originalUuid + " ---- " + currentUuid);
-		if(originalUuid.isPresent() && !currentUuid.equals(originalUuid.get())) {
-			System.out.println("Sending it");
+		// we should always send a uuid override event, even for non-overriden users
+		//System.out.println("Checking to see if we should send a player uuid override event... " + originalUuid + " ---- " + currentUuid);
+		//if(originalUuid.isPresent() && !currentUuid.equals(originalUuid.get())) {
+			//System.out.println("Sending it");
 			ByteArrayDataOutput out = ByteStreams.newDataOutput();
 			out.writeUTF("PlayerUUIDOverrideEvent");
 			out.writeUTF(originalUuid.get().toString());
 			out.writeUTF(currentUuid.toString());
 			player.getServer().getInfo().sendData(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, out.toByteArray());
-		}
+		//}
 	}
 }

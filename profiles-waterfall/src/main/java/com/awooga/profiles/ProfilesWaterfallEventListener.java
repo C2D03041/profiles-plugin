@@ -71,8 +71,8 @@ public class ProfilesWaterfallEventListener implements Listener {
         if(maybeOverrideUuid.isPresent()) {
             UUID overrideUuid = maybeOverrideUuid.get();
             uuidSetterHelper.setUuidBeforeLogin(player.getPendingConnection(), overrideUuid);
-            uuidSetterHelper.notifyServerOfUuidOverride(player);
         }
+        uuidSetterHelper.notifyServerOfUuidOverride(player);
     }
 
     @SneakyThrows

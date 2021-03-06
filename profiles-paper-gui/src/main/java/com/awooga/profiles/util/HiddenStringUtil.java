@@ -13,9 +13,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class HiddenStringUtil {
 
 	// String constants. TODO Change them to something unique to avoid conflict with other plugins!
-	private static final String SEQUENCE_HEADER = "" + ChatColor.RESET + ChatColor.RED + ChatColor.RESET;
-	private static final String SEQUENCE_FOOTER = "" + ChatColor.RESET + ChatColor.DARK_BLUE + ChatColor.RESET;
-	private static final char COLOR_CHAR = ChatColor.COLOR_CHAR;
+	private static final char ZWSP = '\u2B4D';
+	private static final String TEST = "";//""\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\u0010\u0011\u0012\u0013\u0014";
+	private static final String SEQUENCE_HEADER = "\u00A7_\u00A7z\u00A7q";
+	private static final String SEQUENCE_FOOTER = "\u00A7_\u00A7q\u00A7z" + TEST;
+	private static final char COLOR_CHAR = '\u00A7';
+	private static final int CHAR_OFFSET = 100;
 
 	public static void addLore(ItemStack itemStack, Object data) {
 		ItemMeta meta = itemStack.getItemMeta();
@@ -28,7 +31,11 @@ public class HiddenStringUtil {
 		String json = gson.toJson(data);
 		String newLore = encodeString(json);
 		//System.out.println("Putting new lore: "+newLore);
-		lore.add(newLore);
+		if(lore.size() > 0) {
+			lore.set(0, newLore + lore.get(0));
+		} else {
+			lore.add(newLore);
+		}
 
 		meta.setLore(lore);
 		itemStack.setItemMeta(meta);
@@ -96,13 +103,15 @@ public class HiddenStringUtil {
 
 		int start = input.indexOf(SEQUENCE_HEADER);
 		int end = input.indexOf(SEQUENCE_FOOTER);
-		//System.out.println("Got start and end: "+start+", "+end);
+		System.out.println("Got start and end: "+start+", "+end);
 
 		if (start < 0 || end < 0) {
 			return null;
 		}
 
-		return input.substring(start + SEQUENCE_HEADER.length(), end);
+		String extracted = input.substring(start + SEQUENCE_HEADER.length(), end);
+		//System.out.println("Extracted subsequence: "+extracted);
+		return extracted;
 	}
 
 	private static String stringToColors(String normal) {
@@ -116,11 +125,17 @@ public class HiddenStringUtil {
 		StringBuilder sb = new StringBuilder();
 		sb.ensureCapacity(bytes.length * 4);
 
+		//boolean debug = normal != "null";
+
 		for (int i = 0; i < bytes.length; i++) {
 			char[] hex = byteToHex(bytes[i]);
-			//System.out.println("got hex: "+ Arrays.toString(hex));
-			//System.out.println("got hex2: "+hex[0]);
-			//System.out.println("got hex2: "+hex[1]);
+			/*
+			if(debug) {
+				System.out.println("got hex: "+ Arrays.toString(hex));
+				System.out.println("got hex2: "+hex[0]);
+				System.out.println("got hex2: "+hex[1]);
+			}
+			 */
 			sb.append(COLOR_CHAR);
 			sb.append(hex[0]);
 			sb.append(COLOR_CHAR);
@@ -133,9 +148,11 @@ public class HiddenStringUtil {
 			 */
 		}
 
-		//System.out.println("Generated chars: "+sb.length());
-		//System.out.println("Generated chars2: "+sb.toString());
-		//System.out.println("Generated chars3: "+sb.toString().length());
+		/*
+		System.out.println("Generated chars: "+sb.length());
+		System.out.println("Generated chars2: "+sb.toString());
+		System.out.println("Generated chars3: "+sb.toString().length());
+		 */
 
 		return sb.toString();
 	}
@@ -160,16 +177,20 @@ public class HiddenStringUtil {
 	}
 
 	private static int hexToUnsignedInt(char c) {
-		if (c >= '0' && c <= '9') {
-			return c - 48;
-		} else if (c >= 'a' && c <= 'f') {
-			return c - 87;
-		} else {
-			throw new IllegalArgumentException("Invalid hex char: out of range");
-		}
+		//if (c >= '0'+CHAR_OFFSET && c <= '9'+CHAR_OFFSET) {
+			return c - (48 + CHAR_OFFSET);
+		//} else {
+		//	throw new IllegalArgumentException("Invalid hex char: out of range");
+		//}
 	}
 
 	private static char unsignedIntToHex(int i) {
+		if (i >= 0 && i <= 15) {
+			return (char) (i + 48 + CHAR_OFFSET);
+		} else {
+			throw new IllegalArgumentException("Invalid hex int: out of range");
+		}
+		/*
 		if (i >= 0 && i <= 9) {
 			return (char) (i + 48);
 		} else if (i >= 10 && i <= 15) {
@@ -177,6 +198,7 @@ public class HiddenStringUtil {
 		} else {
 			throw new IllegalArgumentException("Invalid hex int: out of range");
 		}
+		 */
 	}
 
 	private static byte hexToByte(char hex1, char hex0) {

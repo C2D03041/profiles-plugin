@@ -17,7 +17,7 @@ options:
   # You can use any permission here. it doesn't have to be anything specific to ProfilesPlugin.
   # For each user, we need to know how many profiles slots the user has. We will check all of these permissions, and limit
   # that user to the number of slots. If a user has multiple of these permissions, we will use the greatest number of
-  # slots out of the permissions that
+  # slots out of the permissions that they have
   profileSlotsByPermission:
     # go into your permissions plugin, and run a command like. `/lp group vip permission set role.vip true`
     role.vip: 7
@@ -45,7 +45,7 @@ hooks:
   # pre-existing profiles (unless your permissions plugin supports players inheriting from other players. Luckperms does not)
   # onSwitchProfile does *NOT* run when the user switches to the genuine/mojang profile.
   onSwitchProfile:
-    - "say User %player_name% has switched to profile %playerprofiles_profileuuid%. Their real UUID: %playerprofiles_genuineuuid%"
+    - "say User %player_name% has switched to profile %playerprofiles_profiPlayerProfilesDAOImplleuuid%. Their real UUID: %playerprofiles_genuineuuid%"
     - "lp user %playerprofiles_genuineuuid% clone %playerprofiles_profileuuid%"
   # onDeleteProfile runs when the user deletes a profile. The user cannot delete a profile when they have that profile
   # selected, so the deleteduuid and profileuuid are guaranteed to be different.

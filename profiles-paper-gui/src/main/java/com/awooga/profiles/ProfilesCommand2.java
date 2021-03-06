@@ -6,6 +6,7 @@ import com.awooga.profiles.chestgui.DefaultStatefulItemStackSupplier;
 import com.awooga.profiles.chestgui.StatefulItemStack;
 import com.awooga.profiles.dao.PlayerProfilesDAO;
 import com.awooga.profiles.dao.ProfileEntity;
+import com.awooga.profiles.events.PlayerUUIDOverrideEvent;
 import com.awooga.profiles.fsm.BoundUserFunction;
 import com.awooga.profiles.fsm.core.EventType;
 import com.awooga.profiles.fsm.events.BukkitCommandEvent;
@@ -123,6 +124,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				Player player = (Player) event.getWhoClicked();
 				event.setCancelled(true);
 				Integer slotClicked = event.getRawSlot();
+				System.out.println("Got click event "+event+" -- "+slotClicked);
 				if(slotClicked == -999) {
 					return null;
 				}
@@ -150,8 +152,8 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 				Player player = (Player) event.getWhoClicked();
 
 				Triplet<@NotNull Boolean, UUID, UUID> cont = this.verifyInventoryClickEvent(event, player, s, "CHAR_SLOT", true);
-				//System.out.println("Got triplet in mainOpened transition: "+cont);
-				//System.out.println("Current state: "+s);
+				System.out.println("Got triplet in mainOpened transition: "+cont);
+				System.out.println("Current state: "+s);
 
 				Boolean validationPassed = cont.getValue0();
 				UUID newUuid = cont.getValue1();
@@ -266,25 +268,26 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 		Integer slotClicked = event.getRawSlot();
 		ItemStack clicked = event.getCurrentItem(); // The item that was clicked
 
+		System.out.println("Checking clicked "+clicked+" -- slot: "+slotClicked);
 		if(clicked == null || slotClicked == -999) { // out of the inventory
 			return Triplet.with(false, null, null);
 		}
 
 		ChestGui<UUID> gui = this.guiMap.get(player);
 		String legendName = gui.getLegendNameBySlot(slotClicked);
-		//System.out.println("Got legend name: "+legendName);
+		System.out.println("Got legend name: "+legendName);
 		if(!legendType.equals(legendName)) {
-			//System.out.println("Not a valid state change, rejecting this transition");
+			System.out.println("Not a valid state change, rejecting this transition");
 			return Triplet.with(false, null, null);
 		}
 
 		UUID targetUuid = HiddenStringUtil.getLore(clicked, UUID.class);
 
-		//System.out.println("Got clicked uuid "+targetUuid);
+		System.out.println("Got clicked uuid "+targetUuid);
 
 		if(doCreate && targetUuid == null) {
 			UUID genuineUUID = playerProfilesDAO.getGenuineUUID(player);
-			if(this.getUserMaxSlots(player) < playerProfilesDAO.getProfilesByGenuineUUID(genuineUUID).length + 1) {
+			if (this.getUserMaxSlots(player) < playerProfilesDAO.getProfilesByGenuineUUID(genuineUUID).length + 1) {
 				// player has no slots left
 				return Triplet.with(false, null, null);
 			}
@@ -523,7 +526,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 
 
 	@EventHandler(priority=EventPriority.LOWEST)
-	public void onPlayerMoveEvent(PlayerRespawnEvent event) {
+	public void onPlayerRespawnEvent(PlayerRespawnEvent event) {
 		Player player = event.getPlayer();
 		Bukkit.getScheduler().runTaskLater(plugin, bukkitTask -> {
 			if(config.getBoolean("options.disableMojangProfile", true)) {
@@ -538,7 +541,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 	}
 
 	@EventHandler
-	public void onPlayerConnect(PlayerJoinEvent event) {
+	public void onPlayerConnect(PlayerUUIDOverrideEvent event) {
 		Player player = event.getPlayer();
 		Bukkit.getScheduler().runTaskLater(plugin, bukkitTask -> {
 			if(config.getBoolean("options.disableMojangProfile", true)) {
