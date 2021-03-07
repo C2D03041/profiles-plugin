@@ -3,6 +3,7 @@ package com.awooga.profiles;
 import com.google.inject.Injector;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
+import net.md_5.bungee.api.scheduler.TaskScheduler;
 
 import javax.inject.Inject;
 
@@ -27,6 +28,10 @@ public final class ProfilesWaterfallPlugin extends Plugin {
         PluginManager manager = getProxy().getPluginManager();
         manager.registerListener(this, listener);
         manager.registerCommand(this, setUUIDCommand);
+    }
+
+    public TaskScheduler getScheduler() {
+        return this.getProxy().getScheduler();
     }
 
     @Override

@@ -19,8 +19,6 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 	@Inject
 	ProfilesPaperCorePlugin plugin;
 
-	HashSet<Player> suppressDuplicates = new HashSet<>();
-
 	@Override
 	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
 		//System.out.println("Got message from player uuid channel - "+channel+" - "+player);
@@ -66,10 +64,5 @@ public class ProfilesPaperCoreMessageListener implements PluginMessageListener, 
 
 			Bukkit.getServer().getPluginManager().callEvent(event);
 		}
-	}
-
-	@EventHandler
-	public void onPlayerDisconnectEvent(PlayerQuitEvent ev) {
-		suppressDuplicates.remove(ev.getPlayer());
 	}
 }

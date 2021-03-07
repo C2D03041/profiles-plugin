@@ -52,6 +52,11 @@ public class ProfilesWaterfallEventListener implements Listener {
     }
 
     @EventHandler
+    public void onServerConnected(ServerConnectEvent ev) {
+        //uuidSetterHelper.notifyServerOfUuidOverride(ev.getPlayer());
+    }
+
+    @EventHandler
     public void onServerConnected(ServerSwitchEvent ev) {
         ProxiedPlayer player = ev.getPlayer();
 
@@ -78,7 +83,7 @@ public class ProfilesWaterfallEventListener implements Listener {
     @SneakyThrows
     @EventHandler
     public void onPluginMessage(PluginMessageEvent event) {
-        //System.out.println("Got plugin message event: "+event+" - "+event.getTag());
+        System.out.println("Got plugin message event: "+event+" - "+event.getTag());
         if (
             !event.getTag().equals(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS) &&
             !event.getTag().equals(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.substring(0, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS.length() - 1))
@@ -93,25 +98,21 @@ public class ProfilesWaterfallEventListener implements Listener {
             ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.equals(channel) ||
             ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.substring(0, ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE.length() - 1).equals(channel)
         ) {
-            String genuineUuidString = in.readUTF();
             String profileUuidString = in.readUTF();
-            //System.out.println("Got genuine UUID string: "+genuineUuidString);
-            //System.out.println("Got profile UUID string: "+profileUuidString);
-            UUID genuineUuid = UUID.fromString(genuineUuidString);
             UUID profileUuid = UUID.fromString(profileUuidString);
-            //System.out.println("Got genuine UUID string: "+genuineUuid);
             //System.out.println("Got profile UUID string: "+profileUuid);
+            /*
             String onlinePlayers = ProxyServer.getInstance().getPlayers().stream()
                 .map(p -> p.getUniqueId()+" - "+p.getDisplayName())
                 .collect(Collectors.joining(","));
             System.out.println("Got online players: " + onlinePlayers);
             ProxiedPlayer player = ProxyServer.getInstance().getPlayer(genuineUuid);
+             */
+            if(!(event.getReceiver() instanceof ProxiedPlayer)) {
+                System.out.println("Cannot process profile switch event -- socket is not a player instance");
+            }
+            ProxiedPlayer player = (ProxiedPlayer) event.getReceiver();
 
-            player = player != null ? player : ProxyServer.getInstance().getPlayers().stream()
-                .filter(p -> p.getUniqueId().equals(genuineUuid) || p.getUniqueId().equals(profileUuid))
-                .findAny()
-                .orElse(null)
-            ;
             if(player == null) {
                 throw new Exception("SWITCH_PLAYER_TO_NEW_PROFILE command got a uuid that doesn't refer to an online player");
             }

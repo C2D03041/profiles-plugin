@@ -17,10 +17,14 @@ import javax.inject.Inject;
 import java.io.StringWriter;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class UUIDSetterHelper {
 	@Inject
 	ProfileDAO profileDao;
+
+	@Inject
+	ProfilesWaterfallPlugin plugin;
 
 	public void setUuid(ProxiedPlayer player, UUID newUuid) {
 		//PendingConnection conn = ev.getConnection();
@@ -103,7 +107,7 @@ public class UUIDSetterHelper {
 			return;
 		}
 
-		//System.out.println("Notify stack trace: ");
+		System.out.println("Sending PlayerUUIDOverrideEvent "+player.getDisplayName()+" - mojangUuid: "+originalUuid+" profileUuid: "+currentUuid);
 		//new Exception().printStackTrace();
 
 		// we should always send a uuid override event, even for non-overriden users
@@ -114,7 +118,12 @@ public class UUIDSetterHelper {
 			out.writeUTF("PlayerUUIDOverrideEvent");
 			out.writeUTF(originalUuid.get().toString());
 			out.writeUTF(currentUuid.toString());
-			player.getServer().getInfo().sendData(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, out.toByteArray());
+			//player.getServer().getInfo().sendData(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, out.toByteArray());
+
+			//plugin.getScheduler().schedule(this.plugin, () -> {
+			//	System.out.println("SCHEDULE RUNNING");
+				player.getServer().sendData(ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_NOTIFICATIONS, out.toByteArray());
+			//}, 1, TimeUnit.SECONDS);
 		//}
 	}
 }

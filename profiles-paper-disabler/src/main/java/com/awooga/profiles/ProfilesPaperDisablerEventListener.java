@@ -14,7 +14,7 @@ public class ProfilesPaperDisablerEventListener implements Listener {
 	public void onUUIDOverrideEvent(PlayerUUIDOverrideEvent ev) {
 		if(!ev.getCurrentUuid().equals(ev.getOriginalUuid())) {
 			System.out.println("Got PlayerUUIDOverrideEvent for "+ev.getPlayer().getDisplayName()+" - reconnecting the user on their genuine profile");
-			sdk.switchPlayerToProfile(ev.getPlayer(), ev.getOriginalUuid(), ev.getOriginalUuid());
+			sdk.switchPlayerToProfile(ev.getPlayer(), ev.getOriginalUuid());
 		}
 
 	}

@@ -25,10 +25,9 @@ public class ProfilesPaperCoreSDK {
 		return plugin.sdk;
 	}
 
-	public boolean switchPlayerToProfile(Player player, UUID genuineUuid, UUID profileUuid) {
+	public boolean switchPlayerToProfile(Player player, UUID profileUuid) {
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF( ProfilesConstants.SWITCH_PLAYER_TO_NEW_PROFILE );
-		out.writeUTF( genuineUuid.toString() );
 		out.writeUTF( profileUuid.toString() );
 		player.sendPluginMessage( plugin, ProfilesConstants.BUNGEE_CHANNEL_NAME_FOR_REQUESTS, out.toByteArray() ); // Send to Bungee
 		return true;

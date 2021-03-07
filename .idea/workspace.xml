@@ -16,28 +16,17 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin-old" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/ProfilesPlugin_build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/profiles-paper-core/profiles.profiles-paper-core.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/profiles-paper-core/profiles.profiles-paper-core.main.iml" afterDir="false" />
+    <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="1.1.6: Change communication protocol to make uuid switching less confusing for Paper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-disabler/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-disabler/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand2.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/ProfilesCommand2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/util/HiddenStringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/util/HiddenStringUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/ProfilesWaterfallEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/ProfilesWaterfallEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/UUIDSetterHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/java/com/awooga/profiles/UUIDSetterHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-waterfall/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-waterfall/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCoreMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCoreMessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCorePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCorePlugin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +194,18 @@
       <command value="gradle init" />
     </option>
   </component>
-  <component name="RunManager" selected="Shell Script.Waterfall">
+  <component name="RunManager" selected="Gradle.minecraft-profiles-plugin [shadowJar]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="minecraft-profiles-plugin [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -445,7 +445,28 @@
       <option name="project" value="LOCAL" />
       <updated>1598637834131</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1.1.5: small bugfix with sending the uuid">
+      <created>1615071261264</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615071261264</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add Readme and licenses">
+      <created>1615072174207</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1615072174207</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1.1.6: Change communication protocol to make uuid switching less confusing for Paper">
+      <created>1615155945288</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1615155945288</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +528,10 @@
     <MESSAGE value="1.0.6 and 7 - Custom materials for inventory items, and disable mojang profile flag" />
     <MESSAGE value="1.0.9 and 1.0.10: disabler plugin, fixing viaversion support" />
     <MESSAGE value="1.1.0: `options.preferCachedPlaceholders`" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.1.0: `options.preferCachedPlaceholders`" />
+    <MESSAGE value="1.1.5: small bugfix with sending the uuid" />
+    <MESSAGE value="Add Readme and licenses" />
+    <MESSAGE value="1.1.6: Change communication protocol to make uuid switching less confusing for Paper" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.1.6: Change communication protocol to make uuid switching less confusing for Paper" />
   </component>
   <component name="WindowStateProjectService">
     <state x="529" y="415" key="#SQL_Resolution_Scopes" timestamp="1615063149263">
@@ -522,25 +546,25 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="868" y="314" key="FileChooserDialogImpl/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615064444089" />
-    <state width="1981" height="229" key="GridCell.Tab.0.bottom" timestamp="1615065550521">
+    <state width="1981" height="170" key="GridCell.Tab.0.bottom" timestamp="1615156050752">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="1981" height="229" key="GridCell.Tab.0.bottom/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615065550521" />
+    <state width="1981" height="170" key="GridCell.Tab.0.bottom/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050752" />
     <state width="1776" height="229" key="GridCell.Tab.0.bottom/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state width="1981" height="229" key="GridCell.Tab.0.center" timestamp="1615065550521">
+    <state width="1981" height="170" key="GridCell.Tab.0.center" timestamp="1615156050751">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="1981" height="229" key="GridCell.Tab.0.center/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615065550521" />
+    <state width="1981" height="170" key="GridCell.Tab.0.center/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050751" />
     <state width="1776" height="229" key="GridCell.Tab.0.center/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state width="1981" height="229" key="GridCell.Tab.0.left" timestamp="1615065550520">
+    <state width="1981" height="170" key="GridCell.Tab.0.left" timestamp="1615156050751">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="1981" height="229" key="GridCell.Tab.0.left/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615065550520" />
+    <state width="1981" height="170" key="GridCell.Tab.0.left/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050751" />
     <state width="1776" height="229" key="GridCell.Tab.0.left/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state width="1981" height="229" key="GridCell.Tab.0.right" timestamp="1615065550521">
+    <state width="1981" height="170" key="GridCell.Tab.0.right" timestamp="1615156050751">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="1981" height="229" key="GridCell.Tab.0.right/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615065550521" />
+    <state width="1981" height="170" key="GridCell.Tab.0.right/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050751" />
     <state width="1776" height="229" key="GridCell.Tab.0.right/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
     <state x="1125" y="267" key="RollbackChangesDialog" timestamp="1609123276347">
       <screen x="0" y="0" width="2560" height="1050" />
@@ -558,6 +582,10 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="704" y="192" width="1636" height="710" key="VCS.FileHistoryDialog/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609125448056" />
+    <state x="922" y="289" key="Vcs.Push.Dialog.v2" timestamp="1615156016740">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="922" y="289" key="Vcs.Push.Dialog.v2/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156016740" />
     <state x="987" y="459" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1615063170799">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -566,15 +594,15 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="944" y="126" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615063101634" />
-    <state x="1091" y="64" width="1270" height="986" key="find.popup" timestamp="1615064200432">
+    <state x="1091" y="64" width="1270" height="986" key="find.popup" timestamp="1615154378232">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="1091" y="64" width="1270" height="986" key="find.popup/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615064200432" />
+    <state x="1091" y="64" width="1270" height="986" key="find.popup/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615154378232" />
     <state x="1091" y="64" width="1270" height="986" key="find.popup/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609131596082" />
-    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup" timestamp="1615062639406">
+    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup" timestamp="1615070122135">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615062639406" />
+    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615070122135" />
     <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609123255609" />
   </component>
 </project>

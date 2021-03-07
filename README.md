@@ -8,7 +8,7 @@ Plugin for Paper/Spigot and Waterfall/Bungeecord that adds player profile slots/
 License
 ---
 
-`profiles-paper-gui`, `profiles-paper-core`, and `profiles-paper-disabler` are distributed under GNU GPL v3
+`profiles-paper-gui`, `profiles-paper-core`, and `profiles-paper-disabler` are licensed under GNU GPL v3
 
-`profiles-waterfall` is dual licensed under either GNU GPL v3 or MIT.
+`profiles-waterfall` and all other project files are dual licensed under either GNU GPL v3 or MIT.
 

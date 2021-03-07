@@ -22,7 +22,7 @@ public class ProfilesPaperCoreModule extends AbstractModule {
 	protected void configure() {
 		// Here we tell Guice to use our plugin instance everytime we need it
 		this.bind(ProfilesPaperCorePlugin.class).toInstance(this.plugin);
-		bind(ProfilesPaperCoreMessageListener.class);
+		bind(ProfilesPaperCoreMessageListener.class).in(Singleton.class);
 		bind(ProfilesPaperCoreSDK.class).in(Singleton.class);
 	}
 }

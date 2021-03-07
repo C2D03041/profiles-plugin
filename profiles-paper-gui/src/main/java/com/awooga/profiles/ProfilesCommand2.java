@@ -169,8 +169,8 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 					return s;
 				}
 
-				UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
-				profilesPaperCoreSDK.switchPlayerToProfile(player, genuineUuid, targetUuid);
+				//UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
+				profilesPaperCoreSDK.switchPlayerToProfile(player, targetUuid);
 
 				return s;
 			})
@@ -294,7 +294,7 @@ public class ProfilesCommand2 extends BukkitEventFSM<ProfilesCommandState> imple
 			UUID newUuid = playerProfilesDAO.createNewProfile(player);
 			playerProfilesDAO.addBrandNewProfileId(newUuid);
 			UUID genuineUuid = playerProfilesDAO.getGenuineUUID(player);
-			profilesPaperCoreSDK.switchPlayerToProfile(player, genuineUuid, newUuid);
+			profilesPaperCoreSDK.switchPlayerToProfile(player, newUuid);
 			return Triplet.with(true, targetUuid, null);
 		}
 
