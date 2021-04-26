@@ -38,7 +38,7 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 	@SneakyThrows
 	@Override
 	public void applyMigrations() {
-		PreparedStatement stmt = conn.prepareStatement("CREATE TABLE IF NOT EXISTS `profiles` (\n" +
+		PreparedStatement stmt = conn.prepareStatement(
 			"  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n" +
 			"  `playerUuid` char(36) NOT NULL,\n" +
 			"  `profileUuid` char(36) NOT NULL,\n" +
@@ -100,7 +100,8 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 	@SneakyThrows
 	@Override
 	public UUID[] getProfilesByGenuineUUID(UUID genuineUuid) {
-		PreparedStatement stmt = conn.prepareStatement("SELECT profileUuid FROM profiles WHERE playerUuid=? AND deleted=false");
+		PreparedStatement stmt = conn.prepareStatement("SELECT profileUuid FROM profiles WHERE playerUuid=? AND deleted=false"
+			, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		stmt.setString(1, genuineUuid.toString());
 		ResultSet resultSet = stmt.executeQuery();
 		ArrayList<UUID> result = new ArrayList();
@@ -118,7 +119,8 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 	@SneakyThrows
 	@Override
 	public List<@NotNull ProfileEntity> getProfileEntitiesByGenuineUUID(UUID genuineUuid) {
-		PreparedStatement stmt = conn.prepareStatement("SELECT * FROM profiles WHERE playerUuid=? AND deleted=false");
+		PreparedStatement stmt = conn.prepareStatement("SELECT * FROM profiles WHERE playerUuid=? AND deleted=false"
+			, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		stmt.setString(1, genuineUuid.toString());
 		ResultSet resultSet = stmt.executeQuery();
 		List<ProfileEntity> result = new ArrayList();
