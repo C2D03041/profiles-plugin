@@ -39,7 +39,7 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 	@Override
 	public void applyMigrations() {
 		PreparedStatement stmt = conn.prepareStatement(
-				"CREATE TABLE IF NOT EXISTS `profiles` (\n" +
+				"CREATE TABLE IF NOT EXISTS profiles (\n" +
 			"  `id` bigint(20) NOT NULL AUTO_INCREMENT,\n" +
 			"  `playerUuid` char(36) NOT NULL,\n" +
 			"  `profileUuid` char(36) NOT NULL,\n" +
