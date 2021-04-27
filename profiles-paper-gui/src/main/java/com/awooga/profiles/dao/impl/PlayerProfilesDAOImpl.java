@@ -128,7 +128,7 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 
 		if(!config.getBoolean("options.disableMojangProfile", true)) {
 			ProfileEntity ent = ProfileEntity.builder()
-				.id(resultSet.getLong("id"))
+				.id(-1L)
 				.cachedPlaceholderTitle("Not Supported")
 				.cachedPlaceholderBody("options.disableMojangProfile=false is not supported with options.preferCachedPlaceholders=true. Change one of them")
 				.deleted(false)
