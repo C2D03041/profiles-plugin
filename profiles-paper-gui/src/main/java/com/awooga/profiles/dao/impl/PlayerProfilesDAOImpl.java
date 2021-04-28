@@ -101,8 +101,7 @@ public class PlayerProfilesDAOImpl implements PlayerProfilesDAO {
 	@SneakyThrows
 	@Override
 	public UUID[] getProfilesByGenuineUUID(UUID genuineUuid) {
-		PreparedStatement stmt = conn.prepareStatement("SELECT profileUuid FROM profiles WHERE playerUuid=? AND deleted=false"
-			, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+		PreparedStatement stmt = conn.prepareStatement("SELECT profileUuid FROM profiles WHERE playerUuid=? AND deleted=false");
 		stmt.setString(1, genuineUuid.toString());
 		ResultSet resultSet = stmt.executeQuery();
 		ArrayList<UUID> result = new ArrayList();

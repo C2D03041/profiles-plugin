@@ -23,7 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="1.1.6: Change communication protocol to make uuid switching less confusing for Paper">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
