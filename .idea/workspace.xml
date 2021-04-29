@@ -23,10 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f6b5723-1a9e-4b55-9ac6-234a284dab9f" name="Default Changelist" comment="1.1.6: Change communication protocol to make uuid switching less confusing for Paper">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCoreMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCoreMessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCorePlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-core/src/main/java/com/awooga/profiles/ProfilesPaperCorePlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profiles-paper-gui/src/main/java/com/awooga/profiles/dao/impl/PlayerProfilesDAOImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +220,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="minecraft-profiles-plugin [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -241,7 +241,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="minecraft-profiles-plugin:profiles-paper-gui [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -260,7 +262,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="minecraft-profiles-plugin:profiles-paper-gui [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -279,7 +283,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="minecraft-profiles-plugin:profiles-paper-gui [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -298,7 +304,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Paper-1" type="ShConfigurationType">
@@ -310,6 +318,8 @@
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="Paper-2" type="ShConfigurationType">
@@ -321,6 +331,8 @@
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="Spigot-1" type="ShConfigurationType">
@@ -332,6 +344,8 @@
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="Waterfall" type="ShConfigurationType">
@@ -343,6 +357,8 @@
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <envs />
       <method v="2" />
     </configuration>
     <list>
@@ -360,10 +376,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.minecraft-profiles-plugin [shadowJar]" />
+        <item itemvalue="Gradle.minecraft-profiles-plugin [shadowJar]" />
         <item itemvalue="Gradle.minecraft-profiles-plugin:profiles-paper-gui [shadowJar]" />
         <item itemvalue="Gradle.minecraft-profiles-plugin:profiles-paper-gui [build]" />
         <item itemvalue="Gradle.minecraft-profiles-plugin [jar]" />
-        <item itemvalue="Gradle.minecraft-profiles-plugin:profiles-paper-gui [jar]" />
       </list>
     </recent_temporary>
   </component>
@@ -532,77 +548,5 @@
     <MESSAGE value="Add Readme and licenses" />
     <MESSAGE value="1.1.6: Change communication protocol to make uuid switching less confusing for Paper" />
     <option name="LAST_COMMIT_MESSAGE" value="1.1.6: Change communication protocol to make uuid switching less confusing for Paper" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="529" y="415" key="#SQL_Resolution_Scopes" timestamp="1615063149263">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="529" y="415" key="#SQL_Resolution_Scopes/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615063149263" />
-    <state x="744" y="239" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615064986242">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="744" y="239" width="1092" height="787" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615064986242" />
-    <state x="868" y="314" key="FileChooserDialogImpl" timestamp="1615064444089">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="868" y="314" key="FileChooserDialogImpl/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615064444089" />
-    <state width="1981" height="170" key="GridCell.Tab.0.bottom" timestamp="1615156050752">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state width="1981" height="170" key="GridCell.Tab.0.bottom/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050752" />
-    <state width="1776" height="229" key="GridCell.Tab.0.bottom/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state width="1981" height="170" key="GridCell.Tab.0.center" timestamp="1615156050751">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state width="1981" height="170" key="GridCell.Tab.0.center/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050751" />
-    <state width="1776" height="229" key="GridCell.Tab.0.center/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state width="1981" height="170" key="GridCell.Tab.0.left" timestamp="1615156050751">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state width="1981" height="170" key="GridCell.Tab.0.left/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050751" />
-    <state width="1776" height="229" key="GridCell.Tab.0.left/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state width="1981" height="170" key="GridCell.Tab.0.right" timestamp="1615156050751">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state width="1981" height="170" key="GridCell.Tab.0.right/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156050751" />
-    <state width="1776" height="229" key="GridCell.Tab.0.right/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609134422433" />
-    <state x="1125" y="267" key="RollbackChangesDialog" timestamp="1609123276347">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="1125" y="267" key="RollbackChangesDialog/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609123276347" />
-    <state x="589" y="204" key="SettingsEditor" timestamp="1615064008827">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="589" y="204" key="SettingsEditor/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615064008827" />
-    <state width="200" height="441" key="SqlResolveConfigurable" timestamp="1615063138315">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state width="200" height="441" key="SqlResolveConfigurable/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615063138315" />
-    <state x="704" y="192" width="1636" height="710" key="VCS.FileHistoryDialog" timestamp="1609125448056">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="704" y="192" width="1636" height="710" key="VCS.FileHistoryDialog/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609125448056" />
-    <state x="922" y="289" key="Vcs.Push.Dialog.v2" timestamp="1615156016740">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="922" y="289" key="Vcs.Push.Dialog.v2/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615156016740" />
-    <state x="987" y="459" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1615063170799">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="987" y="459" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615063170799" />
-    <state x="944" y="126" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1615063101634">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="944" y="126" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615063101634" />
-    <state x="1091" y="64" width="1270" height="986" key="find.popup" timestamp="1615154378232">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="1091" y="64" width="1270" height="986" key="find.popup/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615154378232" />
-    <state x="1091" y="64" width="1270" height="986" key="find.popup/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609131596082" />
-    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup" timestamp="1615070122135">
-      <screen x="0" y="0" width="2560" height="1050" />
-    </state>
-    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup/0.0.2560.1050/-1440.54.1440.870/2560.-83.1280.994@0.0.2560.1050" timestamp="1615070122135" />
-    <state x="450" y="243" width="1344" height="686" key="search.everywhere.popup/0.0.2560.1050/2560.167.1440.870/-1280.-13.1280.994@0.0.2560.1050" timestamp="1609123255609" />
   </component>
 </project>
